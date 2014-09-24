@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6253C83-170B-4600-B120-24328EE79988}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Win32</RootNamespace>
+    <AssemblyName>Win32.WGL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Win32.WGL.XML</DocumentationFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\Win32.WGL.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Defines\LPD.cs" />
+    <Compile Include="Defines\LPD_TYPE.cs" />
+    <Compile Include="Defines\wglAccelerationModeARB.cs" />
+    <Compile Include="Defines\wglBufferARB.cs" />
+    <Compile Include="Defines\wglBufferMaskARB.cs" />
+    <Compile Include="Defines\wglContextAttributeARB.cs" />
+    <Compile Include="Defines\wglContextFlagsARB.cs" />
+    <Compile Include="Defines\wglContextProfileMaskARB.cs" />
+    <Compile Include="Defines\wglContextReleaseBehaviour.cs" />
+    <Compile Include="Defines\wglContextResetNotificationStrategyARB.cs" />
+    <Compile Include="Defines\wglDepthTextureFormatNV.cs" />
+    <Compile Include="Defines\wglPbufferAttributeARB.cs" />
+    <Compile Include="Defines\wglPixelFormatAttributeARB.cs" />
+    <Compile Include="Defines\wglPixelTypeARB.cs" />
+    <Compile Include="Defines\wglSwapMethodeARB.cs" />
+    <Compile Include="Defines\wglTextureCubeMapFaceARB.cs" />
+    <Compile Include="Defines\wglTextureFormatARB.cs" />
+    <Compile Include="Defines\wglTextureTargetARB.cs" />
+    <Compile Include="Defines\WGL_ERROR.cs" />
+    <Compile Include="Defines\WGL_FONT.cs" />
+    <Compile Include="Defines\WGL_SWAP.cs" />
+    <Compile Include="Defines\DontCareBool.cs" />
+    <Compile Include="OpenGL.Compatibility\glAttribMask.cs" />
+    <Compile Include="OpenGLControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OpenGLControl.Designer.cs">
+      <DependentUpon>OpenGLControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenGLDestroyEventArgs.cs" />
+    <Compile Include="OpenGLErrorEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structs\GlyphMetricsFloat.cs" />
+    <Compile Include="Structs\LayerPlaneDescriptor.cs" />
+    <Compile Include="Structs\PointFloat.cs" />
+    <Compile Include="Structs\WGLSwap.cs" />
+    <Compile Include="wgl.cs" />
+    <Compile Include="wglInitializationDummyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Win32\Win32.csproj">
+      <Project>{c591df17-5ac8-4ae0-af18-cf752e4e7d53}</Project>
+      <Name>Win32</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenGL.Core\OpenGL.Core.csproj">
+      <Project>{aef49083-d5a5-4e78-a828-c710e5aa633f}</Project>
+      <Name>OpenGL.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OpenGLControl.resx">
+      <DependentUpon>OpenGLControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

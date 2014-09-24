@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C591DF17-5AC8-4AE0-AF18-CF752E4E7D53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Win32</RootNamespace>
+    <AssemblyName>Win32</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Win32.XML</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\Win32.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeviceContext\Defines\PFD.cs" />
+    <Compile Include="DeviceContext\Defines\PFD_TYPE.cs" />
+    <Compile Include="DeviceContext\DeviceContext.cs" />
+    <Compile Include="DeviceContext\Structs\PixelFormatDescriptor.cs" />
+    <Compile Include="DisplayMode\Defines\CDS.cs" />
+    <Compile Include="DisplayMode\Defines\DisplaySettingsMode.cs" />
+    <Compile Include="DisplayMode\Defines\DISP_CHANGE.cs" />
+    <Compile Include="DisplayMode\Defines\DM.cs" />
+    <Compile Include="DisplayMode\Defines\DMBIN.cs" />
+    <Compile Include="DisplayMode\Defines\DMCOLLATE.cs" />
+    <Compile Include="DisplayMode\Defines\DMCOLOR.cs" />
+    <Compile Include="DisplayMode\Defines\DMDFO.cs" />
+    <Compile Include="DisplayMode\Defines\DMDISPLAYFLAGS.cs" />
+    <Compile Include="DisplayMode\Defines\DMDITHER.cs" />
+    <Compile Include="DisplayMode\Defines\DMDO.cs" />
+    <Compile Include="DisplayMode\Defines\DMDUP.cs" />
+    <Compile Include="DisplayMode\Defines\DMICM.cs" />
+    <Compile Include="DisplayMode\Defines\DMICMMETHOD.cs" />
+    <Compile Include="DisplayMode\Defines\DMMEDIA.cs" />
+    <Compile Include="DisplayMode\Defines\DMNUP.cs" />
+    <Compile Include="DisplayMode\Defines\DMORIENT.cs" />
+    <Compile Include="DisplayMode\Defines\DMPAPER.cs" />
+    <Compile Include="DisplayMode\Defines\DMRES.cs" />
+    <Compile Include="DisplayMode\Defines\DMTT.cs" />
+    <Compile Include="DisplayMode\Defines\EDS.cs" />
+    <Compile Include="DisplayMode\Defines\VP_COMMAND.cs" />
+    <Compile Include="DisplayMode\Defines\VP_CP_CMD.cs" />
+    <Compile Include="DisplayMode\Defines\VP_CP_TYPE.cs" />
+    <Compile Include="DisplayMode\Defines\VP_FLAGS.cs" />
+    <Compile Include="DisplayMode\Defines\VP_MODE.cs" />
+    <Compile Include="DisplayMode\Defines\VP_TV_STANDARD.cs" />
+    <Compile Include="DisplayMode\DisplayMode.cs" />
+    <Compile Include="DisplayMode\Structs\DevMode.cs" />
+    <Compile Include="DisplayMode\Structs\PointL.cs" />
+    <Compile Include="DisplayMode\Structs\VideoParameters.cs" />
+    <Compile Include="Filesystem\Filesystem.cs" />
+    <Compile Include="Monitor\Defines\MonitorInfoFlag.cs" />
+    <Compile Include="Monitor\Monitor.cs" />
+    <Compile Include="Monitor\Structs\MonitorInfo.cs" />
+    <Compile Include="Monitor\Structs\MonitorInfoEx.cs" />
+    <Compile Include="Monitor\Structs\Rect.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Window\Defines\CS.cs" />
+    <Compile Include="Window\Defines\DCX.cs" />
+    <Compile Include="Window\Defines\SWP.cs" />
+    <Compile Include="Window\Window.cs" />
+    <Compile Include="Window\Defines\WS.cs" />
+    <Compile Include="Window\Defines\WM.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
