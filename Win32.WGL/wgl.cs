@@ -1076,6 +1076,9 @@ namespace Win32.WGL
 		/// <summary>
 		/// Loads available functions of the OpenGL window binding for the Microsoft Windows OS provided by the currently active ICD.
 		/// </summary>
+		/// <param name="updateOnly">Set <b>true</b>, if you only want to update the binding for the currently active rendering context.
+		/// If set to <b>false</b>, an invisible window will be created to activate a rendering context for a ICD and then used to
+		/// update the binding.</param>
 		/// <returns><b>true</b> if the extensions <c>WGL_ARB_create_context(-profile)</c>, <c>WGL_ARB_make_current_read</c> and
 		/// <c>WGL_ARB_pixel_format</c> are available.</returns>
 		public static bool LoadWGLExtensions(bool updateOnly=false)

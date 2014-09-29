@@ -3,8 +3,8 @@
 namespace Win32
 {
 	/// <summary>
-	/// Specifies flags for <see cref="DisplayMode.ChangeDisplaySettings(ref DevMode, CDS)">DisplayMode.ChangeDisplaySettings</see> and
-	/// <see cref="DisplayMode.ChangeDisplaySettingsEx(string, ref DevMode, IntPtr, CDS, IntPtr)">Windows.ChangeDisplaySettings</see>.
+	/// Specifies flags for <see cref="O:Win32.DisplayMode.ChangeDisplaySettings">DisplayMode.ChangeDisplaySettings</see> and
+	/// <see cref="O:Win32.DisplayMode.ChangeDisplaySettingsEx">DisplayMode.ChangeDisplaySettingsEx</see>.
 	/// </summary>
 	[Flags]
 	public enum CDS : uint
@@ -41,7 +41,7 @@ namespace Win32
 		SET_PRIMARY=0x00000010,
 
 		/// <summary>
-		/// When set, the <c>lParam</c> parameter of <see cref="DisplayMode.ChangeDisplaySettingsEx(string, ref DevMode, IntPtr, CDS, IntPtr)">Windows.ChangeDisplaySettings</see> is a pointer to a <see cref="VideoParameters"/> structure.
+		/// When set, the <c>lParam</c> parameter of <see cref="O:Win32.DisplayMode.ChangeDisplaySettingsEx">DisplayMode.ChangeDisplaySettingsEx</see> is a pointer to a <see cref="VideoParameters"/> structure.
 		/// </summary>
 		VIDEOPARAMETERS=0x00000020,
 

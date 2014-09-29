@@ -4,7 +4,7 @@ using HGLRC=System.IntPtr;
 namespace Win32.WGL
 {
 	/// <summary>
-	/// Specifies the attributes available for context creation with <see cref="wgl.CreateContextAttribsARB(HDC, HGLRC, int[])">wgl.CreateContextAttribsARB</see>.
+	/// Specifies the attributes available for context creation with <see cref="O:Win32.WGL.wgl.CreateContextAttribsARB">wgl.CreateContextAttribsARB</see>.
 	/// </summary>
 	public enum wglContextAttributeARB : int
 	{

@@ -3,7 +3,7 @@
 namespace Win32
 {
 	/// <summary>
-	/// Specifies flags for <see cref="DisplayMode.EnumDisplaySettingsEx(string, DisplaySettingsMode, ref DevMode, EDS)">DisplayMode.EnumDisplaySettingsEx</see>.
+	/// Specifies flags for <see cref="O:Win32.DisplayMode.EnumDisplaySettingsEx">DisplayMode.EnumDisplaySettingsEx</see>.
 	/// </summary>
 	[Flags]
 	public enum EDS : uint

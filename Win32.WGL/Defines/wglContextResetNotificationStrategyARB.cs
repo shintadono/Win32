@@ -4,7 +4,7 @@ using HGLRC=System.IntPtr;
 namespace Win32.WGL
 {
 	/// <summary>
-	/// Values of <see cref="wglContextAttributeARB.CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB"/> at <see cref="wgl.CreateContextAttribsARB(HDC, HGLRC, int[])">wgl.CreateContextAttribsARB</see>.
+	/// Values of <see cref="wglContextAttributeARB.CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB"/> at <see cref="O:Win32.WGL.wgl.CreateContextAttribsARB">wgl.CreateContextAttribsARB</see>.
 	/// </summary>
 	public enum wglContextResetNotificationStrategyARB : int
 	{

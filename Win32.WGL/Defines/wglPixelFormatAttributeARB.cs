@@ -3,8 +3,8 @@
 namespace Win32.WGL
 {
 	/// <summary>
-	/// Specifies attributes for pixel formats. Used by <see cref="wgl.ChoosePixelFormatARB(HDC, int[], float[], int[], out uint)">wgl.ChoosePixelFormatARB</see> and
-	/// <see cref="wgl.GetPixelFormatAttribivARB(HDC, int, int, wglPixelFormatAttributeARB[], int[])">wgl.GetPixelFormatAttribivARB</see>.
+	/// Specifies attributes for pixel formats. Used by <see cref="O:Win32.WGL.wgl.ChoosePixelFormatARB">wgl.ChoosePixelFormatARB</see> and
+	/// <see cref="O:Win32.WGL.wgl.GetPixelFormatAttribivARB">wgl.GetPixelFormatAttribivARB</see>.
 	/// </summary>
 	public enum wglPixelFormatAttributeARB : int
 	{

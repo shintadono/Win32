@@ -1,7 +1,7 @@
 ﻿namespace Win32
 {
 	/// <summary>
-	/// Specifies return values for <see cref="DisplayMode.ChangeDisplaySettings(ref DevMode, CDS)">DisplayMode.ChangeDisplaySettings</see>.
+	/// Specifies return values for <see cref="O:Win32.DisplayMode.ChangeDisplaySettings">DisplayMode.ChangeDisplaySettings</see>.
 	/// </summary>
 	public enum DISP_CHANGE : int
 	{

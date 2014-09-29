@@ -1,8 +1,8 @@
 ﻿namespace Win32
 {
 	/// <summary>
-	/// Specifies special mode numbers of <see cref="DisplayMode.EnumDisplaySettings(string, DisplaySettingsMode, ref DevMode)">DisplayMode.EnumDisplaySettings</see> and
-	/// <see cref="DisplayMode.EnumDisplaySettingsEx(string, DisplaySettingsMode, ref DevMode, EDS)">DisplayMode.EnumDisplaySettingsEx</see>.
+	/// Specifies special mode numbers of <see cref="O:Win32.DisplayMode.EnumDisplaySettings">DisplayMode.EnumDisplaySettings</see> and
+	/// <see cref="O:Win32.DisplayMode.EnumDisplaySettingsEx">DisplayMode.EnumDisplaySettingsEx</see>.
 	/// </summary>
 	public enum DisplaySettingsMode : uint
 	{

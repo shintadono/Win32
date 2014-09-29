@@ -5,7 +5,7 @@ using HGLRC=System.IntPtr;
 namespace Win32.WGL
 {
 	/// <summary>
-	/// Bitmask for the values of <see cref="wglContextAttributeARB.CONTEXT_FLAGS_ARB"/> at <see cref="wgl.CreateContextAttribsARB(HDC, HGLRC, int[])">wgl.CreateContextAttribsARB</see>.
+	/// Bitmask for the values of <see cref="wglContextAttributeARB.CONTEXT_FLAGS_ARB"/> at <see cref="O:Win32.WGL.wgl.CreateContextAttribsARB">wgl.CreateContextAttribsARB</see>.
 	/// </summary>
 	[Flags]
 	public enum wglContextFlagsARB : int
