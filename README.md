@@ -1,7 +1,7 @@
 Win32
 =====
 
-Win32 API wrapper for .NET and Mono writter in C#
+Win32 API wrapper for .NET and Mono written in C#
 
 Win32 project
 -------------
