@@ -6,7 +6,7 @@ using HDC=System.IntPtr;
 namespace Win32
 {
 	/// <summary>
-	/// Class containing function of the GDI relevant for OpenGL initialization.
+	/// Class containing functions of the GDI relevant for OpenGL initialization.
 	/// </summary>
 	[SuppressUnmanagedCodeSecurity()]
 	public static class DeviceContext
