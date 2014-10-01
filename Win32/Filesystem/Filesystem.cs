@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace Win32
 {
 	/// <summary>
-	/// Class for file system opertations.
+	/// Class for file system operations.
 	/// </summary>
 	public static class Filesystem
 	{
