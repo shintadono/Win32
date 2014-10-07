@@ -11,6 +11,8 @@ Contains static classes, enums and structures wrapping Win32 API calls.
 * Filesystem: Class for file system operations.
 * Monitor: Class for managing monitor devices.
 * Windows: Class for managing windows (not the OS, just the windows).
+* Font: Class for handling fonts.
+* GDI: Wrapper for GDI API calls.
 
 
 Win32.WGL project
