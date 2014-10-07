@@ -48,6 +48,10 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GDI\GDI.cs" />
+    <Compile Include="GDI\Defines\FW.cs" />
+    <Compile Include="GDI\Defines\CLIP_PRECIS.cs" />
+    <Compile Include="GDI\Defines\CharSet.cs" />
     <Compile Include="GDI\Defines\DCTT.cs" />
     <Compile Include="GDI\Defines\PRINTRATEUNIT.cs" />
     <Compile Include="GDI\Defines\DC.cs" />
@@ -90,6 +94,10 @@
     <Compile Include="GDI\Defines\GGO.cs" />
     <Compile Include="GDI\Structs\GlyphMetrics.cs" />
     <Compile Include="GDI\Structs\Mat2.cs" />
+    <Compile Include="GDI\Defines\OUT_PRECIS.cs" />
+    <Compile Include="GDI\Defines\QUALITY.cs" />
+    <Compile Include="GDI\Defines\PitchAndFamily.cs" />
+    <Compile Include="GDI\Defines\StockObjectType.cs" />
     <Compile Include="WinDef\Point.cs" />
     <Compile Include="Monitor\Defines\MonitorInfoFlag.cs" />
     <Compile Include="Monitor\Monitor.cs" />

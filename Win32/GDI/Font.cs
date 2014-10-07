@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 using HDC=System.IntPtr;
+using HFONT=System.IntPtr;
 
 namespace Win32
 {
@@ -12,7 +13,30 @@ namespace Win32
 	public static class Font
 	{
 		const string DLLName="GDI32.dll";
+		const string CreateFontW="CreateFontW";
 		const string GetGlyphOutlineW="GetGlyphOutlineW";
+
+		/// <summary>
+		/// Creates a logical font with the specified characteristics. The logical font can subsequently be selected as the font for any device.
+		/// </summary>
+		/// <param name="nHeight">The height, in logical units, of the font's character cell or character.</param>
+		/// <param name="nWidth">The average width, in logical units, of characters in the requested font.</param>
+		/// <param name="nEscapement">The angle, in tenths of degrees, between the escapement vector and the x-axis of the device. The escapement vector is parallel to the base line of a row of text.</param>
+		/// <param name="nOrientation">The angle, in tenths of degrees, between each character's base line and the x-axis of the device.</param>
+		/// <param name="fnWeight">The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.</param>
+		/// <param name="fdwItalic">Set <b>true</b> to make the font italic.</param>
+		/// <param name="fdwUnderline">Set <b>true</b> to underline the font.</param>
+		/// <param name="fdwStrikeOut">Set <b>true</b> to strikeout the font.</param>
+		/// <param name="fdwCharSet">The character set.</param>
+		/// <param name="fdwOutputPrecision"></param>
+		/// <param name="fdwClipPrecision"></param>
+		/// <param name="fdwQuality"></param>
+		/// <param name="fdwPitchAndFamily"></param>
+		/// <param name="lpszFace"></param>
+		/// <returns></returns>
+		[DllImport(DLLName, EntryPoint=CreateFontW, CharSet=CharSet.Unicode, ExactSpelling=true)]
+		public static extern HFONT CreateFont(int nHeight, int nWidth, int nEscapement, int nOrientation, int fnWeight, bool fdwItalic, bool fdwUnderline, bool fdwStrikeOut, Charset fdwCharSet,
+			OUT_PRECIS fdwOutputPrecision, CLIP_PRECIS fdwClipPrecision, QUALITY fdwQuality, PitchAndFamily fdwPitchAndFamily, string lpszFace);
 
 		/// <summary>
 		/// The <b>GetGlyphOutline</b> function retrieves the outline or bitmap for a character in the TrueType font that is selected into the specified device context.
