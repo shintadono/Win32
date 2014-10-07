@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Security;
 
 namespace Win32
 {
 	/// <summary>
 	/// Class for file system operations.
 	/// </summary>
+	[SuppressUnmanagedCodeSecurity()]
 	public static class Filesystem
 	{
 		const string DLLName="Kernel32.dll";
