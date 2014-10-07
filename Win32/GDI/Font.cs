@@ -12,6 +12,7 @@ namespace Win32
 	public static class Font
 	{
 		const string DLLName="GDI32.dll";
+		const string GetGlyphOutlineW="GetGlyphOutlineW";
 
 		/// <summary>
 		/// The <b>GetGlyphOutline</b> function retrieves the outline or bitmap for a character in the TrueType font that is selected into the specified device context.
@@ -28,7 +29,7 @@ namespace Win32
 		/// the return value is greater than zero; otherwise, the return value is <b>GDI_ERROR</b> (-1). If one of these flags is specified and the buffer size or address is zero, the return value specifies the
 		/// required buffer size, in bytes. If <see cref="GGO.METRICS"/> is specified and the function fails, the return value is <b>GDI_ERROR</b> (-1).
 		/// </returns>
-		[DllImport(DLLName)]
+		[DllImport(DLLName, EntryPoint=GetGlyphOutlineW, CharSet=CharSet.Unicode, ExactSpelling=true)]
 		public static extern uint GetGlyphOutline(HDC hdc, uint uChar, GGO uFormat, out GlyphMetrics lpgm, uint cbBuffer, byte[] lpvBuffer, [In] ref Mat2 lpmat2);
 
 		/// <summary>
@@ -46,7 +47,7 @@ namespace Win32
 		/// the return value is greater than zero; otherwise, the return value is <b>GDI_ERROR</b>. If one of these flags is specified and the buffer size or address is zero, the return value specifies the
 		/// required buffer size, in bytes. If <see cref="GGO.METRICS"/> is specified and the function fails, the return value is <b>GDI_ERROR</b>.
 		/// </returns>
-		[DllImport(DLLName)]
+		[DllImport(DLLName, EntryPoint=GetGlyphOutlineW, CharSet=CharSet.Unicode, ExactSpelling=true)]
 		public static extern uint GetGlyphOutline(HDC hdc, uint uChar, GGO uFormat, out GlyphMetrics lpgm, uint cbBuffer, IntPtr lpvBuffer, [In] ref Mat2 lpmat2);
 	}
 }
