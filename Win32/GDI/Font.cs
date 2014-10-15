@@ -15,6 +15,7 @@ namespace Win32
 		const string DLLName="GDI32.dll";
 		const string CreateFontW="CreateFontW";
 		const string GetGlyphOutlineW="GetGlyphOutlineW";
+		const string CreateFontIndirectW="CreateFontIndirectW";
 
 		/// <summary>
 		/// Creates a logical font with the specified characteristics. The logical font can subsequently be selected as the font for any device.
@@ -27,16 +28,25 @@ namespace Win32
 		/// <param name="fdwItalic">Set <b>true</b> to make the font italic.</param>
 		/// <param name="fdwUnderline">Set <b>true</b> to underline the font.</param>
 		/// <param name="fdwStrikeOut">Set <b>true</b> to strikeout the font.</param>
-		/// <param name="fdwCharSet">The character set.</param>
-		/// <param name="fdwOutputPrecision"></param>
-		/// <param name="fdwClipPrecision"></param>
-		/// <param name="fdwQuality"></param>
-		/// <param name="fdwPitchAndFamily"></param>
-		/// <param name="lpszFace"></param>
-		/// <returns></returns>
+		/// <param name="fdwCharSet">A <see cref="Charset"/> specifying the character set.</param>
+		/// <param name="fdwOutputPrecision">A <see cref="OUT_PRECIS"/> specifying the output precision.</param>
+		/// <param name="fdwClipPrecision">A <see cref="CLIP_PRECIS"/> specifying the clip precision.</param>
+		/// <param name="fdwQuality">A <see cref="QUALITY"/> specifying the quality.</param>
+		/// <param name="fdwPitchAndFamily">A <see cref="PitchAndFamily"/> specifying the pitch and font family.</param>
+		/// <param name="lpszFace">String that specifying the typeface name of the font.</param>
+		/// <returns>The handle to the font.</returns>
 		[DllImport(DLLName, EntryPoint=CreateFontW, CharSet=CharSet.Unicode, ExactSpelling=true)]
 		public static extern HFONT CreateFont(int nHeight, int nWidth, int nEscapement, int nOrientation, int fnWeight, bool fdwItalic, bool fdwUnderline, bool fdwStrikeOut, Charset fdwCharSet,
 			OUT_PRECIS fdwOutputPrecision, CLIP_PRECIS fdwClipPrecision, QUALITY fdwQuality, PitchAndFamily fdwPitchAndFamily, string lpszFace);
+
+		/// <summary>
+		/// Creates a logical font with the specified characteristics. The logical font can subsequently be selected as the font for any device.
+		/// (Use only in environments that have <see cref="Marshal.SystemDefaultCharSize"/> == 2.)
+		/// </summary>
+		/// <param name="lplf">Defines the attributes of a font.</param>
+		/// <returns>The handle to the font.</returns>
+		[DllImport(DLLName, EntryPoint=CreateFontIndirectW, CharSet=CharSet.Unicode, ExactSpelling=true)]
+		public static extern HFONT CreateFontIndirect([In] LogFont lplf);
 
 		/// <summary>
 		/// The <b>GetGlyphOutline</b> function retrieves the outline or bitmap for a character in the TrueType font that is selected into the specified device context.

@@ -37,5 +37,28 @@ namespace Win32
 		/// <returns>The handle to the requested object.</returns>
 		[DllImport(DLLName)]
 		public static extern HANDLE GetStockObject(StockObjectType fnObject);
+
+		/// <summary>
+		/// Sets the current device context (DC) brush color to the specified color value. If the device cannot represent the specified color value, the color is set to the nearest physical color.
+		/// </summary>
+		/// <param name="hdc">The handle to the device context.</param>
+		/// <param name="crColor">The new brush color.</param>
+		/// <returns>If the function succeeds, the return value specifies the previous DC brush color value. Otherwise <see cref="CLR_INVALID"/> is returned.</returns>
+		[DllImport(DLLName)]
+		public static extern uint SetDCBrushColor(HDC hdc, uint crColor);
+
+		/// <summary>
+		/// Sets the current device context (DC) pen color to the specified color value. If the device cannot represent the specified color value, the color is set to the nearest physical color.
+		/// </summary>
+		/// <param name="hdc">The handle to the device context.</param>
+		/// <param name="crColor">The new pen color.</param>
+		/// <returns>If the function succeeds, the return value specifies the previous DC pen color value. Otherwise <see cref="CLR_INVALID"/> is returned.</returns>
+		[DllImport(DLLName)]
+		public static extern uint SetDCPenColor(HDC hdc, uint crColor);
+
+		/// <summary>
+		/// Error color value, returned by <see cref="SetDCBrushColor"/> and <see cref="SetDCPenColor"/>.
+		/// </summary>
+		public const uint CLR_INVALID=0xFFFFFFFF;
 	}
 }

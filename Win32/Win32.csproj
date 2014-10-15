@@ -98,6 +98,12 @@
     <Compile Include="GDI\Defines\QUALITY.cs" />
     <Compile Include="GDI\Defines\PitchAndFamily.cs" />
     <Compile Include="GDI\Defines\StockObjectType.cs" />
+    <Compile Include="GDI\Structs\LogFont.cs" />
+    <Compile Include="GDI\Defines\LogFontCharSet.cs" />
+    <Compile Include="GDI\Defines\LogFontClipPrecision.cs" />
+    <Compile Include="GDI\Defines\LogFontPitchAndFamily.cs" />
+    <Compile Include="GDI\Defines\LogFontPrecision.cs" />
+    <Compile Include="GDI\Defines\LogFontQuality.cs" />
     <Compile Include="WinDef\Point.cs" />
     <Compile Include="Monitor\Defines\MonitorInfoFlag.cs" />
     <Compile Include="Monitor\Monitor.cs" />
@@ -112,6 +118,7 @@
     <Compile Include="Window\Window.cs" />
     <Compile Include="Window\Defines\WS.cs" />
     <Compile Include="Window\Defines\WM.cs" />
+    <Compile Include="WinKernel\WinKernel.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup />

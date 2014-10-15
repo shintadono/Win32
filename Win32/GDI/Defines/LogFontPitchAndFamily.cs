@@ -6,7 +6,7 @@ namespace Win32
 	/// The pitch and family of the font. The low-order bits (Bit 1-0) specify the pitch, the higher-order bits (7-4) specify the font family. Bit 3 specifies monospace font.
 	/// </summary>
 	[Flags]
-	public enum PitchAndFamily : uint
+	public enum LogFontPitchAndFamily : byte
 	{
 		/// <summary>
 		/// Default pitch.
