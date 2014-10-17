@@ -15,4 +15,4 @@ Contains static classes, enums and structures wrapping Win32 API calls.
 
 **Authors**
 
-Copyright (c) of C# port 2014 by Shinta <shintadono@googlemail.com>
+Copyright (c) of C# port 2014 by Shinta (<shintadono@googlemail.com>)
