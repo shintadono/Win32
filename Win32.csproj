@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C591DF17-5AC8-4AE0-AF18-CF752E4E7D53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Win32</RootNamespace>
+    <AssemblyName>Win32</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Win32.XML</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\Win32.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GDI\GDI.cs" />
+    <Compile Include="GDI\Defines\FW.cs" />
+    <Compile Include="GDI\Defines\CLIP_PRECIS.cs" />
+    <Compile Include="GDI\Defines\CharSet.cs" />
+    <Compile Include="GDI\Defines\DCTT.cs" />
+    <Compile Include="GDI\Defines\PRINTRATEUNIT.cs" />
+    <Compile Include="GDI\Defines\DC.cs" />
+    <Compile Include="GDI\Defines\PFD.cs" />
+    <Compile Include="GDI\Defines\PFD_TYPE.cs" />
+    <Compile Include="GDI\DeviceContext.cs" />
+    <Compile Include="GDI\Structs\PixelFormatDescriptor.cs" />
+    <Compile Include="GDI\Defines\CDS.cs" />
+    <Compile Include="GDI\Defines\DisplaySettingsMode.cs" />
+    <Compile Include="GDI\Defines\DISP_CHANGE.cs" />
+    <Compile Include="GDI\Defines\DM.cs" />
+    <Compile Include="GDI\Defines\DMBIN.cs" />
+    <Compile Include="GDI\Defines\DMCOLLATE.cs" />
+    <Compile Include="GDI\Defines\DMCOLOR.cs" />
+    <Compile Include="GDI\Defines\DMDFO.cs" />
+    <Compile Include="GDI\Defines\DMDISPLAYFLAGS.cs" />
+    <Compile Include="GDI\Defines\DMDITHER.cs" />
+    <Compile Include="GDI\Defines\DMDO.cs" />
+    <Compile Include="GDI\Defines\DMDUP.cs" />
+    <Compile Include="GDI\Defines\DMICM.cs" />
+    <Compile Include="GDI\Defines\DMICMMETHOD.cs" />
+    <Compile Include="GDI\Defines\DMMEDIA.cs" />
+    <Compile Include="GDI\Defines\DMNUP.cs" />
+    <Compile Include="GDI\Defines\DMORIENT.cs" />
+    <Compile Include="GDI\Defines\DMPAPER.cs" />
+    <Compile Include="GDI\Defines\DMRES.cs" />
+    <Compile Include="GDI\Defines\DMTT.cs" />
+    <Compile Include="GDI\Defines\EDS.cs" />
+    <Compile Include="GDI\Defines\VP_COMMAND.cs" />
+    <Compile Include="GDI\Defines\VP_CP_CMD.cs" />
+    <Compile Include="GDI\Defines\VP_CP_TYPE.cs" />
+    <Compile Include="GDI\Defines\VP_FLAGS.cs" />
+    <Compile Include="GDI\Defines\VP_MODE.cs" />
+    <Compile Include="GDI\Defines\VP_TV_STANDARD.cs" />
+    <Compile Include="DisplayMode\DisplayMode.cs" />
+    <Compile Include="GDI\Structs\DevMode.cs" />
+    <Compile Include="GDI\Structs\VideoParameters.cs" />
+    <Compile Include="Filesystem\Filesystem.cs" />
+    <Compile Include="GDI\Font.cs" />
+    <Compile Include="GDI\Defines\GGO.cs" />
+    <Compile Include="GDI\Structs\GlyphMetrics.cs" />
+    <Compile Include="GDI\Structs\Mat2.cs" />
+    <Compile Include="GDI\Defines\OUT_PRECIS.cs" />
+    <Compile Include="GDI\Defines\QUALITY.cs" />
+    <Compile Include="GDI\Defines\PitchAndFamily.cs" />
+    <Compile Include="GDI\Defines\StockObjectType.cs" />
+    <Compile Include="GDI\Structs\LogFont.cs" />
+    <Compile Include="GDI\Defines\LogFontCharSet.cs" />
+    <Compile Include="GDI\Defines\LogFontClipPrecision.cs" />
+    <Compile Include="GDI\Defines\LogFontPitchAndFamily.cs" />
+    <Compile Include="GDI\Defines\LogFontPrecision.cs" />
+    <Compile Include="GDI\Defines\LogFontQuality.cs" />
+    <Compile Include="WinDef\Point.cs" />
+    <Compile Include="Monitor\Defines\MonitorInfoFlag.cs" />
+    <Compile Include="Monitor\Monitor.cs" />
+    <Compile Include="Monitor\Structs\MonitorInfo.cs" />
+    <Compile Include="Monitor\Structs\MonitorInfoEx.cs" />
+    <Compile Include="WinDef\Rect.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinDef\Size.cs" />
+    <Compile Include="Window\Defines\CS.cs" />
+    <Compile Include="Window\Defines\DCX.cs" />
+    <Compile Include="Window\Defines\SWP.cs" />
+    <Compile Include="Window\Window.cs" />
+    <Compile Include="Window\Defines\WS.cs" />
+    <Compile Include="Window\Defines\WM.cs" />
+    <Compile Include="WinKernel\WinKernel.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
