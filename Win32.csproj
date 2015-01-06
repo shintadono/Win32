@@ -113,6 +113,7 @@
     <Compile Include="WinDef\Size.cs" />
     <Compile Include="Window\Defines\CS.cs" />
     <Compile Include="Window\Defines\DCX.cs" />
+    <Compile Include="Window\Defines\HT.cs" />
     <Compile Include="Window\Defines\SWP.cs" />
     <Compile Include="Window\Window.cs" />
     <Compile Include="Window\Defines\WS.cs" />
