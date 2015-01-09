@@ -38,11 +38,10 @@
     <DocumentationFile>bin\Release\Win32.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>StrongNameKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -114,6 +113,7 @@
     <Compile Include="WinDef\Size.cs" />
     <Compile Include="Window\Defines\CS.cs" />
     <Compile Include="Window\Defines\DCX.cs" />
+    <Compile Include="Window\Defines\HT.cs" />
     <Compile Include="Window\Defines\SWP.cs" />
     <Compile Include="Window\Window.cs" />
     <Compile Include="Window\Defines\WS.cs" />
@@ -124,6 +124,7 @@
   <ItemGroup>
     <None Include="LICENSE" />
     <None Include="README.md" />
+    <None Include="StrongNameKey.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
