@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -9,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Win32")]
-[assembly: AssemblyCopyright("Copyright © 2014 by the Authors")]
+[assembly: AssemblyCopyright("Copyright © 2014-2015 by the Authors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,3 +21,6 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("7557AE2C-7195-486D-B873-7F0D82B2626A")]
+
+// The following line set the CLS compliance of the assembly.
+[assembly: CLSCompliant(false)]

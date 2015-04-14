@@ -11,8 +11,9 @@ Contains static classes, enums and structures wrapping Win32 API calls.
 * Windows: Class for managing windows (not the OS, just the windows).
 * Font: Class for handling fonts.
 * GDI: Wrapper for GDI API calls.
+* HumanInterfaceDevices: Namespace for HID operations, enums and structures.
 
 
 **Authors**
 
-Copyright (c) of C# port 2014 by Shinta (<shintadono@googlemail.com>)
+Copyright (c) of C# port 2014-2015 by Shinta (<shintadono@googlemail.com>)
