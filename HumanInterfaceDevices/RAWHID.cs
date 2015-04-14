@@ -23,6 +23,11 @@ namespace Win32.HumanInterfaceDevices
 		/// </summary>
 		public uint count;
 
-		// Here the raw data array starts. But since we can't define structs with variable length, you'll have to access the raw data array directly.
+		/// <summary>
+		/// Here the raw data array starts. But since we can't define structs with variable length, you'll have to access the raw data array directly.
+		/// Here only the first byte is available.
+		/// </summary>
+		//public unsafe fixed byte rawData[1];
+		public byte rawData;
 	}
 }

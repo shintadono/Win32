@@ -6,64 +6,45 @@ namespace Win32.HumanInterfaceDevices
 	/// <summary>
 	/// Contains the raw input from a device.
 	/// </summary>
-	[StructLayout(LayoutKind.Explicit)]
+	[StructLayout(LayoutKind.Sequential)]
 	[CLSCompliant(false)]
-	public struct RAWINPUT32
+	public struct RAWINPUT
 	{
+		#region Union of RAWMOUSE, RAWKEYBOARD and RAWHID.
 		/// <summary>
-		/// The raw input data.
+		/// Union of <see cref="RAWMOUSE"/>, <see cref="RAWKEYBOARD"/> and <see cref="RAWHID"/>.
 		/// </summary>
-		[FieldOffset(0)]
+		[StructLayout(LayoutKind.Explicit)]
+		public struct Data
+		{
+			/// <summary>
+			/// If the data comes from a mouse, this is the raw input data.
+			/// </summary>
+			[FieldOffset(0)]
+			public RAWMOUSE mouse;
+
+			/// <summary>
+			/// If the data comes from a keyboard, this is the raw input data.
+			/// </summary>
+			[FieldOffset(0)]
+			public RAWKEYBOARD keyboard;
+
+			/// <summary>
+			/// If the data comes from an HID, this is the raw input data.
+			/// </summary>
+			[FieldOffset(0)]
+			public RAWHID hid;
+		}
+		#endregion
+
+		/// <summary>
+		/// The raw input data header.
+		/// </summary>
 		public RAWINPUTHEADER header;
 
 		/// <summary>
-		/// If the data comes from a mouse, this is the raw input data.
-		/// </summary>
-		[FieldOffset(16)]
-		public RAWMOUSE mouse;
-
-		/// <summary>
-		/// If the data comes from a keyboard, this is the raw input data.
-		/// </summary>
-		[FieldOffset(16)]
-		public RAWKEYBOARD keyboard;
-
-		/// <summary>
-		/// If the data comes from an HID, this is the raw input data.
-		/// </summary>
-		[FieldOffset(16)]
-		public RAWHID hid;
-	}
-
-	/// <summary>
-	/// Contains the raw input from a device.
-	/// </summary>
-	[StructLayout(LayoutKind.Explicit)]
-	[CLSCompliant(false)]
-	public struct RAWINPUT64
-	{
-		/// <summary>
 		/// The raw input data.
 		/// </summary>
-		[FieldOffset(0)]
-		public RAWINPUTHEADER header;
-
-		/// <summary>
-		/// If the data comes from a mouse, this is the raw input data.
-		/// </summary>
-		[FieldOffset(24)]
-		public RAWMOUSE mouse;
-
-		/// <summary>
-		/// If the data comes from a keyboard, this is the raw input data.
-		/// </summary>
-		[FieldOffset(24)]
-		public RAWKEYBOARD keyboard;
-
-		/// <summary>
-		/// If the data comes from an HID, this is the raw input data.
-		/// </summary>
-		[FieldOffset(24)]
-		public RAWHID hid;
+		public Data data;
 	}
 }
