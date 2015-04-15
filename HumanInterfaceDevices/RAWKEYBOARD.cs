@@ -35,7 +35,7 @@ namespace Win32.HumanInterfaceDevices
 		/// The corresponding window message, for example <see cref="WM.KEYDOWN">WM_KEYDOWN</see>,
 		/// <see cref="WM.SYSKEYDOWN">WM_SYSKEYDOWN</see>, and so forth.
 		/// </summary>
-		public /*WM*/ int Message;
+		public /*WM*/ uint Message;
 
 		/// <summary>
 		/// The device-specific additional information for the event.

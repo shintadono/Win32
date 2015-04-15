@@ -15,7 +15,7 @@ namespace Win32.HumanInterfaceDevices
 		/// Union of <see cref="RAWMOUSE"/>, <see cref="RAWKEYBOARD"/> and <see cref="RAWHID"/>.
 		/// </summary>
 		[StructLayout(LayoutKind.Explicit)]
-		public struct Data
+		public struct DATA
 		{
 			/// <summary>
 			/// If the data comes from a mouse, this is the raw input data.
@@ -45,6 +45,6 @@ namespace Win32.HumanInterfaceDevices
 		/// <summary>
 		/// The raw input data.
 		/// </summary>
-		public Data data;
+		public DATA data;
 	}
 }

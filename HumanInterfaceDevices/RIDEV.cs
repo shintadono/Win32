@@ -4,7 +4,7 @@ namespace Win32.HumanInterfaceDevices
 {
 	/// <summary>
 	/// Mode flag that specifies how to interpret the information provided by 
-	/// <see cref="RAWINPUTDEVICE.usagePage">usagePage</see> and <see cref="RAWINPUTDEVICE.usage">usage</see>.
+	/// <see cref="RAWINPUTDEVICE.usUsagePage">usagePage</see> and <see cref="RAWINPUTDEVICE.usUsage">usage</see>.
 	/// </summary>
 	[CLSCompliant(false)]
 	[Flags]
@@ -30,15 +30,15 @@ namespace Win32.HumanInterfaceDevices
 
 		/// <summary>
 		/// If set, this specifies all devices whose top level collection is from the specified
-		/// <see cref="RAWINPUTDEVICE.usagePage">usagePage</see>. Note that
-		/// <see cref="RAWINPUTDEVICE.usage">usage</see> must be zero. To exclude a particular top level
+		/// <see cref="RAWINPUTDEVICE.usUsagePage">usagePage</see>. Note that
+		/// <see cref="RAWINPUTDEVICE.usUsage">usage</see> must be zero. To exclude a particular top level
 		/// collection, use <see cref="RIDEV.EXCLUDE">RIDEV_EXCLUDE</see>.
 		/// </summary>
 		PAGEONLY=0x00000020,
 
 		/// <summary>
-		/// If set, this prevents any devices specified by <see cref="RAWINPUTDEVICE.usagePage">usagePage</see>
-		/// or <see cref="RAWINPUTDEVICE.usage">usage</see> from generating legacy messages. This is only
+		/// If set, this prevents any devices specified by <see cref="RAWINPUTDEVICE.usUsagePage">usagePage</see>
+		/// or <see cref="RAWINPUTDEVICE.usUsage">usage</see> from generating legacy messages. This is only
 		/// for the mouse and keyboard. See <see cref="RAWINPUTDEVICE">Remarks</see>.
 		/// </summary>
 		NOLEGACY=0x00000030,
@@ -84,5 +84,10 @@ namespace Win32.HumanInterfaceDevices
 		/// </summary>
 		/// <remarks>Windows XP: This flag is not supported until Windows Vista</remarks>
 		DEVNOTIFY=0x00002000,
+
+		/// <summary>
+		/// Usage: mode&amp;RIDEV.EXMODEMASK.
+		/// </summary>
+		EXMODEMASK=0x000000F0,
 	}
 }

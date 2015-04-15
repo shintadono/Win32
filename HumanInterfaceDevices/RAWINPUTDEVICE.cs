@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using HWND=System.IntPtr;
 
 namespace Win32.HumanInterfaceDevices
 {
@@ -27,24 +28,24 @@ namespace Win32.HumanInterfaceDevices
 		/// <summary>
 		/// Top level collection Usage page for the raw input device.
 		/// </summary>
-		public ushort usagePage;
+		public ushort usUsagePage;
 
 		/// <summary>
 		/// Top level collection Usage for the raw input device.
 		/// </summary>
-		public ushort usage;
+		public ushort usUsage;
 
 		/// <summary>
 		/// Mode flag that specifies how to interpret the information provided by
-		/// <see cref="RAWINPUTDEVICE.usagePage">usagePage</see> and <see cref="RAWINPUTDEVICE.usage">usage</see>.
+		/// <see cref="RAWINPUTDEVICE.usUsagePage">usagePage</see> and <see cref="RAWINPUTDEVICE.usUsage">usage</see>.
 		/// It can be zero (the default). By default, the operating system sends raw input from devices with the
 		/// specified top level collection (TLC) to the registered application as long as it has the window focus.
 		/// </summary>
-		public RIDEV flags;
+		public RIDEV dwFlags;
 
 		/// <summary>
 		/// A handle to the target window. If <b>null</b> (IntPtr.Zero) it follows the keyboard focus.
 		/// </summary>
-		public IntPtr hwndTarget;
+		public HWND hwndTarget;
 	}
 }

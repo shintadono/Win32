@@ -28,5 +28,10 @@ namespace Win32.HumanInterfaceDevices
 		/// Mouse attributes changed; application needs to query the mouse attributes.
 		/// </summary>
 		ATTRIBUTES_CHANGED=0x04,
+
+		/// <summary>
+		/// Do not coalesce mouse moves.
+		/// </summary>
+		MOVE_NOCOALESCE=0x08,
 	}
 }

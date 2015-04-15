@@ -103,6 +103,8 @@
     <Compile Include="GDI\Defines\LogFontPitchAndFamily.cs" />
     <Compile Include="GDI\Defines\LogFontPrecision.cs" />
     <Compile Include="GDI\Defines\LogFontQuality.cs" />
+    <Compile Include="HumanInterfaceDevices\GIDC.cs" />
+    <Compile Include="HumanInterfaceDevices\HID.cs" />
     <Compile Include="HumanInterfaceDevices\KEYBOARD.cs" />
     <Compile Include="HumanInterfaceDevices\MOUSE.cs" />
     <Compile Include="HumanInterfaceDevices\RAWHID.cs" />
@@ -110,10 +112,13 @@
     <Compile Include="HumanInterfaceDevices\RAWINPUTDEVICE.cs" />
     <Compile Include="HumanInterfaceDevices\RAWINPUTDEVICELIST.cs" />
     <Compile Include="HumanInterfaceDevices\RAWINPUTHEADER.cs" />
-    <Compile Include="HumanInterfaceDevices\RawInputMode.cs" />
+    <Compile Include="HumanInterfaceDevices\RIM.cs" />
+    <Compile Include="HumanInterfaceDevices\RIM_TYPE.cs" />
     <Compile Include="HumanInterfaceDevices\RAWKEYBOARD.cs" />
     <Compile Include="HumanInterfaceDevices\RAWMOUSE.cs" />
+    <Compile Include="HumanInterfaceDevices\RID.cs" />
     <Compile Include="HumanInterfaceDevices\RIDEV.cs" />
+    <Compile Include="HumanInterfaceDevices\RIDI.cs" />
     <Compile Include="HumanInterfaceDevices\RID_DEVICE_INFO.cs" />
     <Compile Include="HumanInterfaceDevices\RID_DEVICE_INFO_HID.cs" />
     <Compile Include="HumanInterfaceDevices\RID_DEVICE_INFO_KEYBOARD.cs" />
@@ -130,6 +135,7 @@
     <Compile Include="WinDef\Size.cs" />
     <Compile Include="Window\Defines\CS.cs" />
     <Compile Include="Window\Defines\DCX.cs" />
+    <Compile Include="Window\Defines\ERROR.cs" />
     <Compile Include="Window\Defines\HT.cs" />
     <Compile Include="Window\Defines\SWP.cs" />
     <Compile Include="Window\Window.cs" />

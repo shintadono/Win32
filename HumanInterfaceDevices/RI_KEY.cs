@@ -28,5 +28,15 @@ namespace Win32.HumanInterfaceDevices
 		/// This is the right version of the key.
 		/// </summary>
 		E1=4,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		TERMSRV_SET_LED=8,
+
+		/// <summary>
+		/// 
+		/// </summary>
+		TERMSRV_SHADOW=0x10,
 	}
 }

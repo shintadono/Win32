@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Win32.HumanInterfaceDevices
 {
-	class RID_DEVICE_INFO_KEYBOARD
+	public class RID_DEVICE_INFO_KEYBOARD
 	{
 		public uint dwType;
 		public uint dwSubType;

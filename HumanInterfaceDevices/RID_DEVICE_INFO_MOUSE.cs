@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Win32.HumanInterfaceDevices
 {
-	class RID_DEVICE_INFO_MOUSE
+	public class RID_DEVICE_INFO_MOUSE
 	{
 		public uint dwId;
 		public uint dwNumberOfButtons;

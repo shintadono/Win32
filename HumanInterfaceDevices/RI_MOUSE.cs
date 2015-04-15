@@ -60,12 +60,12 @@ namespace Win32.HumanInterfaceDevices
 		XBUTTON2_UP=0x0200,
 
 		/// <summary>
-		/// Raw input comes from a mouse wheel. The wheel delta is stored in <see cref="RAWMOUSE.buttonData"/>.
+		/// Raw input comes from a mouse wheel. The wheel delta is stored in <see cref="RAWMOUSE.usButtonData"/>.
 		/// </summary>
 		WHEEL=0x0400,
 
 		/// <summary>
-		/// Raw input comes from a horizontal mouse wheel. The wheel delta is stored in <see cref="RAWMOUSE.buttonData"/>.
+		/// Raw input comes from a horizontal mouse wheel. The wheel delta is stored in <see cref="RAWMOUSE.usButtonData"/>.
 		/// </summary>
 		HORIZONTAL_WHEEL=0x0800,
 

@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using HANDLE=System.IntPtr;
+using WPARAM=System.UIntPtr;
 
 namespace Win32.HumanInterfaceDevices
 {
 	/// <summary>
 	/// Contains the header information that is part of the raw input data.
 	/// </summary>
-	/// <remarks>To get more information on the device, use <see cref="device"/> in a call to
-	/// <see cref="GetRawInputDeviceInfo"/>.</remarks>
+	/// <remarks>To get more information on the device, use <see cref="hDevice"/> in a call to
+	/// <see cref="HID.GetRawInputDeviceInfo"/>.</remarks>
 	[StructLayout(LayoutKind.Sequential)]
 	[CLSCompliant(false)]
 	public struct RAWINPUTHEADER
@@ -15,22 +17,22 @@ namespace Win32.HumanInterfaceDevices
 		/// <summary>
 		/// The type of raw input.
 		/// </summary>
-		public RawInputMode type;
+		public RIM_TYPE dwType;
 
 		/// <summary>
 		/// The size, in bytes, of the entire input packet of data. This includes <see cref="RAWINPUT"/>
 		/// plus possible extra input reports in the <see cref="RAWHID"/> variable length array.
 		/// </summary>
-		public uint size;
+		public uint dwSize;
 
 		/// <summary>
 		/// A handle to the device generating the raw input data.
 		/// </summary>
-		public IntPtr device;
+		public HANDLE hDevice;
 
 		/// <summary>
 		/// The value passed in the wParam parameter of the <see cref="WM.INPUT">WM_INPUT</see> message.
 		/// </summary>
-		public UIntPtr wParam;
+		public WPARAM wParam;
 	}
 }

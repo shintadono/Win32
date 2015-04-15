@@ -1,10 +1,12 @@
 ﻿using System.Runtime.InteropServices;
+using System.Security;
 
 namespace Win32
 {
 	/// <summary>
 	/// Class for miscellaneous kernel32.dll functions.
 	/// </summary>
+	[SuppressUnmanagedCodeSecurity()]
 	public static class WinKernel
 	{
 		const string DLLName="Kernel32.dll";

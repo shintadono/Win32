@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using HANDLE=System.IntPtr;
 
 namespace Win32.HumanInterfaceDevices
 {
@@ -13,11 +14,11 @@ namespace Win32.HumanInterfaceDevices
 		/// <summary>
 		/// A handle to the raw input device.
 		/// </summary>
-		public IntPtr device;
+		public HANDLE hDevice;
 
 		/// <summary>
 		/// The type of device.
 		/// </summary>
-		public RawInputMode type;
+		public RIM_TYPE dwType;
 	}
 }
