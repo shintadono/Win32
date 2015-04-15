@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
-	/// Contains information about the state of the keyboard. 
+	/// Contains information about the state of the keyboard.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
 	[CLSCompliant(false)]
@@ -40,6 +40,6 @@ namespace Win32.HumanInterfaceDevices
 		/// <summary>
 		/// The device-specific additional information for the event.
 		/// </summary>
-		public ulong ExtraInformation;
+		public uint ExtraInformation;
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Defined the type of the raw input or the input device.

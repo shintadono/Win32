@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Defines the scan code from the key depression.

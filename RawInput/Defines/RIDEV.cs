@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
-	/// Mode flag that specifies how to interpret the information provided by 
-	/// <see cref="RAWINPUTDEVICE.usUsagePage">usagePage</see> and <see cref="RAWINPUTDEVICE.usUsage">usage</see>.
+	/// Mode flag that specifies how to interpret the information provided by
+	/// <see cref="RAWINPUTDEVICE.usUsagePage"/> and <see cref="RAWINPUTDEVICE.usUsage"/>.
 	/// </summary>
 	[CLSCompliant(false)]
 	[Flags]
@@ -30,22 +30,22 @@ namespace Win32.HumanInterfaceDevices
 
 		/// <summary>
 		/// If set, this specifies all devices whose top level collection is from the specified
-		/// <see cref="RAWINPUTDEVICE.usUsagePage">usagePage</see>. Note that
-		/// <see cref="RAWINPUTDEVICE.usUsage">usage</see> must be zero. To exclude a particular top level
-		/// collection, use <see cref="RIDEV.EXCLUDE">RIDEV_EXCLUDE</see>.
+		/// <see cref="RAWINPUTDEVICE.usUsagePage"/>. Note that <see cref="RAWINPUTDEVICE.usUsage"/>
+		/// must be zero. To exclude a particular top level collection, use
+		/// <see cref="RIDEV.EXCLUDE">RIDEV_EXCLUDE</see>.
 		/// </summary>
 		PAGEONLY=0x00000020,
 
 		/// <summary>
-		/// If set, this prevents any devices specified by <see cref="RAWINPUTDEVICE.usUsagePage">usagePage</see>
-		/// or <see cref="RAWINPUTDEVICE.usUsage">usage</see> from generating legacy messages. This is only
+		/// If set, this prevents any devices specified by <see cref="RAWINPUTDEVICE.usUsagePage"/>
+		/// or <see cref="RAWINPUTDEVICE.usUsage"/> from generating legacy messages. This is only
 		/// for the mouse and keyboard. See <see cref="RAWINPUTDEVICE">Remarks</see>.
 		/// </summary>
 		NOLEGACY=0x00000030,
 
 		/// <summary>
 		/// If set, this enables the caller to receive the input even when the caller is not in the
-		/// foreground. Note that <see cref="RAWINPUTDEVICE.hwndTarget">hwndTarget</see> must be specified.
+		/// foreground. Note that <see cref="RAWINPUTDEVICE.hwndTarget"/> must be specified.
 		/// </summary>
 		INPUTSINK=0x00000100,
 
@@ -59,7 +59,7 @@ namespace Win32.HumanInterfaceDevices
 		/// hotkeys; for example, [ALT]+[TAB] and [CTRL]+[ALT]+[DEL], are still handled. By default, all
 		/// keyboard hotkeys are handled. <see cref="RIDEV.NOHOTKEYS">RIDEV_NOHOTKEYS</see> can be specified
 		/// even if <see cref="RIDEV.NOLEGACY">RIDEV_NOLEGACY</see> is not specified and
-		/// <see cref="RAWINPUTDEVICE.hwndTarget">hwndTarget</see> is <b>null</b> (IntPtr.Zero).
+		/// <see cref="RAWINPUTDEVICE.hwndTarget"/> is <b>null</b> (IntPtr.Zero).
 		/// </summary>
 		NOHOTKEYS=0x00000200,
 
@@ -75,14 +75,14 @@ namespace Win32.HumanInterfaceDevices
 		/// application does not process it. In other words, if the foreground application is not registered
 		/// for raw input, then the background application that is registered will receive the input.
 		/// </summary>
-		/// <remarks>Windows XP: This flag is not supported until Windows Vista</remarks>
+		/// <remarks><b>Windows XP:</b> This flag is not supported until Windows Vista</remarks>
 		EXINPUTSINK=0x00001000,
 
 		/// <summary>
 		/// If set, this enables the caller to receive <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see>
 		/// notifications for device arrival and device removal.
 		/// </summary>
-		/// <remarks>Windows XP: This flag is not supported until Windows Vista</remarks>
+		/// <remarks><b>Windows XP:</b> This flag is not supported until Windows Vista</remarks>
 		DEVNOTIFY=0x00002000,
 
 		/// <summary>

@@ -11,7 +11,7 @@ Contains static classes, enums and structures wrapping Win32 API calls.
 * Windows: Class for managing windows (not the OS, just the windows).
 * Font: Class for handling fonts.
 * GDI: Wrapper for GDI API calls.
-* HumanInterfaceDevices: Namespace for HID operations, enums and structures.
+* RawInput: Namespace for Raw Input API operations (class RawInput), enums and structures.
 
 
 **Authors**

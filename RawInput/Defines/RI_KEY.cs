@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Defines flags for scan code information.
@@ -30,12 +30,12 @@ namespace Win32.HumanInterfaceDevices
 		E1=4,
 
 		/// <summary>
-		/// 
+		/// [Please fill, if someone knows what this value does.]
 		/// </summary>
 		TERMSRV_SET_LED=8,
 
 		/// <summary>
-		/// 
+		/// [Please fill, if someone knows what this value does.]
 		/// </summary>
 		TERMSRV_SHADOW=0x10,
 	}

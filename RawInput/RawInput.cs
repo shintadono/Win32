@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Security;
+using HRAWINPUT=System.IntPtr;
 using HANDLE=System.IntPtr;
 using LRESULT=System.IntPtr;
 using WPARAM=System.UIntPtr;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Class for managing human interface devices.
 	/// </summary>
 	[SuppressUnmanagedCodeSecurity()]
 	[CLSCompliant(false)]
-	public class HID
+	public class RawInput
 	{
 		const string DLLName="User32.dll";
 		const string GetRawInputDeviceInfoW="GetRawInputDeviceInfoW";
 
+		#region Functions
 		/// <summary>
 		/// Calls the default raw input procedure to provide default processing for any raw input messages that an application
 		/// does not process. This function ensures that every message is processed. <b>DefRawInputProc</b> is called with the
@@ -27,7 +29,7 @@ namespace Win32.HumanInterfaceDevices
 		/// <param name="cbSizeHeader">The size, in bytes, of the <see cref="RAWINPUTHEADER"/> structure.</param>
 		/// <returns>If successful, the function returns <b>S_OK</b> (IntPtr.Zero). Otherwise it returns an error value.</returns>
 		[DllImport(DLLName)]
-		public extern static LRESULT DefRawInputProc(IntPtr[] paRawInput, int nInput, uint cbSizeHeader);
+		public extern static LRESULT DefRawInputProc([In] IntPtr[] paRawInput, int nInput, uint cbSizeHeader);
 
 		/// <summary>
 		/// Performs a buffered read of the raw input data.
@@ -65,7 +67,7 @@ namespace Win32.HumanInterfaceDevices
 		/// In contrast, <see cref="GetRawInputBuffer"/> gets an array of <see cref="RAWINPUT"/> structures.
 		/// </remarks>
 		/// <param name="hRawInput">A handle to the <see cref="RAWINPUT"/> structure. This comes from the
-		/// lParam in <see cref="WM.INPUT">WM_INPUT</see>.</param>
+		/// <b>lParam</b> in <see cref="WM.INPUT">WM_INPUT</see>.</param>
 		/// <param name="uiCommand">The command flag. See <see cref="RID"/> for more information.</param>
 		/// <param name="pData">A pointer to the data that comes from the <see cref="RAWINPUT"/> structure.
 		/// This depends on the value of <paramref name="uiCommand"/>. If pData is <b>null</b> (IntPtr.Zero),
@@ -79,7 +81,7 @@ namespace Win32.HumanInterfaceDevices
 		/// <para>If there is an error, the return value is <see cref="uint.MaxValue"/> (-1).</para>
 		/// </returns>
 		[DllImport(DLLName)]
-		public extern static uint GetRawInputData(IntPtr hRawInput, RID uiCommand, IntPtr pData, ref uint pcbSize, uint cbSizeHeader);
+		public extern static uint GetRawInputData(HRAWINPUT hRawInput, RID uiCommand, IntPtr pData, ref uint pcbSize, uint cbSizeHeader);
 
 		/// <summary>
 		/// Retrieves information about the raw input device.
@@ -152,7 +154,7 @@ namespace Win32.HumanInterfaceDevices
 		/// returns <see cref="uint.MaxValue"/> (-1). For more details, call <see cref="WinKernel.GetLastError"/>.</para>
 		/// </returns>
 		[DllImport(DLLName)]
-		public extern static uint GetRegisteredRawInputDevices(IntPtr pRawInputDevices,  ref uint puiNumDevices, uint cbSize);
+		public extern static uint GetRegisteredRawInputDevices(IntPtr pRawInputDevices, ref uint puiNumDevices, uint cbSize);
 
 		/// <summary>
 		/// Registers the devices that supply the raw input data.
@@ -177,8 +179,10 @@ namespace Win32.HumanInterfaceDevices
 		/// <returns><b>true</b> if the function succeeds; otherwise, <b>false</b>. If the function fails, call
 		/// <see cref="WinKernel.GetLastError"/> for more information.</returns>
 		[DllImport(DLLName)]
-		public extern static bool RegisterRawInputDevices(RAWINPUTDEVICE[] pRawInputDevices, uint uiNumDevices, uint cbSize);
+		public extern static bool RegisterRawInputDevices([In] RAWINPUTDEVICE[] pRawInputDevices, uint uiNumDevices, uint cbSize);
+		#endregion
 
+		#region Macros
 		static IntPtr RAWINPUT_ALIGN(IntPtr x)
 		{
 			if(IntPtr.Size==sizeof(int))
@@ -217,5 +221,6 @@ namespace Win32.HumanInterfaceDevices
 		/// <param name="wParam">The <b>wParam</b> of a <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> message.</param>
 		/// <returns>The input code of a <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> message as <see cref="GIDC"/>.</returns>
 		public static GIDC GET_RAWINPUT_DEVICE_CHANGE_CODE_WPARAM(WPARAM wParam) { return (GIDC)((int)wParam&0xff); }
+		#endregion
 	}
 }

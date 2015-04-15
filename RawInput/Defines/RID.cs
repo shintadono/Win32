@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
-	/// Defines the command flag for <see cref="HID.GetRawInputData"/>.
+	/// Defines the command flag for <see cref="RawInput.GetRawInputData"/>.
 	/// </summary>
 	[CLSCompliant(false)]
 	public enum RID : uint

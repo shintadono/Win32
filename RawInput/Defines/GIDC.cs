@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
-	/// Defines the allowed values for the wParam parameter of a
+	/// Defines the allowed values for the <b>wParam</b> parameter of a
 	/// <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> message.
-	/// To get the wParam value, use the <see cref="HID.GET_RAWINPUT_DEVICE_CHANGE_CODE_WPARAM"/>.
+	/// To get the <b>wParam</b> value, use the <see cref="RawInput.GET_RAWINPUT_DEVICE_CHANGE_CODE_WPARAM"/>.
 	/// </summary>
 	public enum GIDC
 	{

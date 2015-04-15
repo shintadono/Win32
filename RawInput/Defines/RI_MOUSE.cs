@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Defines the transition state of the mouse buttons.

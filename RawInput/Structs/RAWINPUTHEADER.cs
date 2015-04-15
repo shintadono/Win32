@@ -3,13 +3,13 @@ using System.Runtime.InteropServices;
 using HANDLE=System.IntPtr;
 using WPARAM=System.UIntPtr;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Contains the header information that is part of the raw input data.
 	/// </summary>
 	/// <remarks>To get more information on the device, use <see cref="hDevice"/> in a call to
-	/// <see cref="HID.GetRawInputDeviceInfo"/>.</remarks>
+	/// <see cref="RawInput.GetRawInputDeviceInfo"/>.</remarks>
 	[StructLayout(LayoutKind.Sequential)]
 	[CLSCompliant(false)]
 	public struct RAWINPUTHEADER

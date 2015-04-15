@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Contains the raw input from a device.
@@ -15,6 +15,7 @@ namespace Win32.HumanInterfaceDevices
 		/// Union of <see cref="RAWMOUSE"/>, <see cref="RAWKEYBOARD"/> and <see cref="RAWHID"/>.
 		/// </summary>
 		[StructLayout(LayoutKind.Explicit)]
+		[CLSCompliant(false)]
 		public struct DATA
 		{
 			/// <summary>

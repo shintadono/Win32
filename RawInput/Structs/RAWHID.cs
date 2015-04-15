@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Describes the format of the raw input from a Human Interface Device (HID).
 	/// </summary>
 	/// <remarks>
-	/// Each <see cref="WM.INPUT">WM_INPUT</see> can indicate several inputs, but all of the inputs
-	/// come from the same HID. The size of the raw data array is sizeHID * count.
+	/// Each <see cref="WM.INPUT">WM_INPUT</see> can indicate several inputs, but all of the
+	/// inputs come from the same HID. The size of the raw data array is
+	/// <see cref="dwSizeHid"/>*<see cref="dwCount"/>.
 	/// </remarks>
 	[StructLayout(LayoutKind.Sequential)]
 	[CLSCompliant(false)]

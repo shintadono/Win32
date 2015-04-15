@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using HWND=System.IntPtr;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.RawInput
 {
 	/// <summary>
 	/// Defines information for the raw input devices.
@@ -12,7 +12,7 @@ namespace Win32.HumanInterfaceDevices
 	/// If <see cref="RIDEV.NOLEGACY">RIDEV_NOLEGACY</see> is set for a mouse or a keyboard, the system does not
 	/// generate any legacy message for that device for the application. For example, if the mouse TLC is set with
 	/// <see cref="RIDEV.NOLEGACY">RIDEV_NOLEGACY</see>, <see cref="WM.LBUTTONDOWN">WM_LBUTTONDOWN</see> and
-	/// related legacy mouse messages are not generated. Likewise, if the keyboard TLC is set with 
+	/// related legacy mouse messages are not generated. Likewise, if the keyboard TLC is set with
 	/// <see cref="RIDEV.NOLEGACY">RIDEV_NOLEGACY</see>, <see cref="WM.KEYDOWN">WM_KEYDOWN</see> and related
 	/// legacy keyboard messages are not generated.
 	/// </para>
