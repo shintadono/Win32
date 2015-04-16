@@ -9,7 +9,7 @@ namespace Win32.RawInput
 	/// Contains the header information that is part of the raw input data.
 	/// </summary>
 	/// <remarks>To get more information on the device, use <see cref="hDevice"/> in a call to
-	/// <see cref="RawInput.GetRawInputDeviceInfo"/>.</remarks>
+	/// <see cref="O:Win32.RawInput.RawInput.GetRawInputDeviceInfo"/>.</remarks>
 	[StructLayout(LayoutKind.Sequential)]
 	[CLSCompliant(false)]
 	public struct RAWINPUTHEADER
@@ -31,7 +31,7 @@ namespace Win32.RawInput
 		public HANDLE hDevice;
 
 		/// <summary>
-		/// The value passed in the wParam parameter of the <see cref="WM.INPUT">WM_INPUT</see> message.
+		/// The value passed in the <b>wParam</b> parameter of the <see cref="WM.INPUT">WM_INPUT</see> message.
 		/// </summary>
 		public WPARAM wParam;
 	}

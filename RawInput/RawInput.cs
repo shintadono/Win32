@@ -5,6 +5,8 @@ using HRAWINPUT=System.IntPtr;
 using HANDLE=System.IntPtr;
 using LRESULT=System.IntPtr;
 using WPARAM=System.UIntPtr;
+using System.Text;
+using System.Collections.Generic;
 
 namespace Win32.RawInput
 {
@@ -87,7 +89,7 @@ namespace Win32.RawInput
 		/// Retrieves information about the raw input device.
 		/// (Use only in environments that have <see cref="Marshal.SystemDefaultCharSize"/> == 2.)
 		/// </summary>
-		/// <param name="hDevice">A handle to the raw input device. This comes from the lParam of the
+		/// <param name="hDevice">A handle to the raw input device. This comes from the <b>lParam</b> of the
 		/// <see cref="WM.INPUT">WM_INPUT</see> message, from the <see cref="RAWINPUTHEADER.hDevice">hDevice</see>
 		/// member of <see cref="RAWINPUTHEADER"/>, or from <see cref="GetRawInputDeviceList"/>. It can also be
 		/// <b>null</b> (IntPtr.Zero) if an application inserts input data, for example, by using <b>SendInput</b>.</param>
@@ -95,7 +97,7 @@ namespace Win32.RawInput
 		/// <see cref="RIDI"/> for more information.</param>
 		/// <param name="pData">A pointer to a buffer that contains the information specified by <paramref name="uiCommand"/>.
 		/// If <paramref name="uiCommand"/> is <see cref="RIDI.DEVICEINFO"/>, set the <see cref="RID_DEVICE_INFO.cbSize">cbSize</see>
-		/// member of <see cref="RID_DEVICE_INFO"/> to <b>sizeof(RID_DEVICE_INFO)</b> before calling <see cref="GetRawInputDeviceInfo"/>.</param>
+		/// member of <see cref="RID_DEVICE_INFO"/> to <b>sizeof(RID_DEVICE_INFO)</b> before calling <see cref="O:Win32.RawInput.RawInput.GetRawInputDeviceInfo"/>.</param>
 		/// <param name="pcbSize">The size, in bytes or characters (if <paramref name="uiCommand"/> is <see cref="RIDI.DEVICENAME"/>),
 		/// of the data in <paramref name="pData"/>.</param>
 		/// <returns>
@@ -115,12 +117,12 @@ namespace Win32.RawInput
 		/// </summary>
 		/// <remarks>
 		/// <para>The devices returned from this function are the mouse, the keyboard, and other Human Interface Device (HID) devices.</para>
-		/// <para>To get more detailed information about the attached devices, call <see cref="GetRawInputDeviceInfo"/> using
+		/// <para>To get more detailed information about the attached devices, call <see cref="O:Win32.RawInput.RawInput.GetRawInputDeviceInfo"/> using
 		/// the <see cref="RAWINPUTDEVICELIST.hDevice">hDevice</see> from <see cref="RAWINPUTDEVICELIST"/>.</para>
 		/// </remarks>
 		/// <param name="pRawInputDeviceList">An array of <see cref="RAWINPUTDEVICELIST"/> structures for the devices attached to
-		/// the system. If <b>null</b> (IntPtr.Zero), the number of devices are returned in <paramref name="puiNumDevices"/>.</param>
-		/// <param name="puiNumDevices">If <paramref name="pRawInputDeviceList"/> is <b>null</b> (IntPtr.Zero), the function
+		/// the system. If <b>null</b>, the number of devices are returned in <paramref name="puiNumDevices"/>.</param>
+		/// <param name="puiNumDevices">If <paramref name="pRawInputDeviceList"/> is <b>null</b>, the function
 		/// populates this variable with the number of devices attached to the system; otherwise, this variable specifies
 		/// the number of <see cref="RAWINPUTDEVICELIST"/> structures that can be contained in the buffer to which
 		/// <paramref name="pRawInputDeviceList"/> points. If this value is less than the number of devices attached to the
@@ -134,7 +136,7 @@ namespace Win32.RawInput
 		/// <see cref="WinKernel.GetLastError"/> returns the error indication.</para>
 		/// </returns>
 		[DllImport(DLLName)]
-		public extern static uint GetRawInputDeviceList(IntPtr pRawInputDeviceList, ref uint puiNumDevices, uint cbSize);
+		public extern static uint GetRawInputDeviceList([Out, MarshalAs(UnmanagedType.LPArray)] RAWINPUTDEVICELIST[] pRawInputDeviceList, ref uint puiNumDevices, uint cbSize);
 
 		/// <summary>
 		/// Retrieves the information about the raw input devices for the current application.
@@ -154,7 +156,7 @@ namespace Win32.RawInput
 		/// returns <see cref="uint.MaxValue"/> (-1). For more details, call <see cref="WinKernel.GetLastError"/>.</para>
 		/// </returns>
 		[DllImport(DLLName)]
-		public extern static uint GetRegisteredRawInputDevices(IntPtr pRawInputDevices, ref uint puiNumDevices, uint cbSize);
+		public extern static uint GetRegisteredRawInputDevices([Out, MarshalAs(UnmanagedType.LPArray)] RAWINPUTDEVICE[] pRawInputDevices, ref uint puiNumDevices, uint cbSize);
 
 		/// <summary>
 		/// Registers the devices that supply the raw input data.
@@ -163,7 +165,7 @@ namespace Win32.RawInput
 		/// <para>To receive <see cref="WM.INPUT">WM_INPUT</see> messages, an application must first register the raw input
 		/// devices using <see cref="RegisterRawInputDevices"/>. By default, an application does not receive raw input.</para>
 		/// <para>To receive <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> messages, an application must
-		/// specify the <see cref="RIDEV.DEVNOTIFY"/> flag for each device class that is specified by the 
+		/// specify the <see cref="RIDEV.DEVNOTIFY"/> flag for each device class that is specified by the
 		/// <see cref="RAWINPUTDEVICE.usUsagePage">usUsagePage</see> and <see cref="RAWINPUTDEVICE.usUsage">usUsage</see>
 		/// fields of the <see cref="RAWINPUTDEVICE"/> structure. By default, an application does not receive
 		/// <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> notifications for raw input device arrival and removal.</para>
@@ -221,6 +223,156 @@ namespace Win32.RawInput
 		/// <param name="wParam">The <b>wParam</b> of a <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> message.</param>
 		/// <returns>The input code of a <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> message as <see cref="GIDC"/>.</returns>
 		public static GIDC GET_RAWINPUT_DEVICE_CHANGE_CODE_WPARAM(WPARAM wParam) { return (GIDC)((int)wParam&0xff); }
+		#endregion
+
+		#region Helper/Overloads
+		[DllImport(DLLName, EntryPoint=GetRawInputDeviceInfoW, CharSet=CharSet.Unicode, ExactSpelling=true)]
+		extern static uint GetRawInputDeviceInfo(HANDLE hDevice, RIDI uiCommand, StringBuilder pData, ref uint pcbSize);
+
+		[DllImport(DLLName, EntryPoint=GetRawInputDeviceInfoW, CharSet=CharSet.Unicode, ExactSpelling=true)]
+		extern static uint GetRawInputDeviceInfo(HANDLE hDevice, RIDI uiCommand, ref RID_DEVICE_INFO pData, ref uint pcbSize);
+
+		[DllImport(DLLName, EntryPoint=GetRawInputDeviceInfoW, CharSet=CharSet.Unicode, ExactSpelling=true)]
+		extern static uint GetRawInputDeviceInfo(HANDLE hDevice, RIDI uiCommand, byte[] pData, ref uint pcbSize);
+
+		[DllImport(DLLName, EntryPoint="RegisterRawInputDevices")]
+		extern static bool RegisterRawInputDevice([In] ref RAWINPUTDEVICE pRawInputDevice, uint uiNumDevices, uint cbSize);
+
+		/// <summary>
+		/// Retrieves the device name of a raw input device.
+		/// </summary>
+		/// <param name="hDevice">A handle to the raw input device. This comes from the <b>lParam</b> of the
+		/// <see cref="WM.INPUT">WM_INPUT</see> message, from the <see cref="RAWINPUTHEADER.hDevice">hDevice</see>
+		/// member of <see cref="RAWINPUTHEADER"/>, or from <see cref="GetRawInputDeviceList"/>. It can also be
+		/// <b>null</b> (IntPtr.Zero) if an application inserts input data, for example, by using <b>SendInput</b>.</param>
+		/// <returns>The device name of the raw input device.</returns>
+		public static string GetRawInputDeviceName(HANDLE hDevice)
+		{
+			uint size=0;
+			uint err=GetRawInputDeviceInfo(hDevice, RIDI.DEVICENAME, IntPtr.Zero, ref size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error determining device name (length). (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			size=Math.Max(err, size)+1;
+
+			StringBuilder tmp=new StringBuilder((int)size);
+			err=GetRawInputDeviceInfo(hDevice, RIDI.DEVICENAME, tmp, ref size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error determining device name. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			return tmp.ToString();
+		}
+
+		/// <summary>
+		/// Retrieves information about the raw input device.
+		/// </summary>
+		/// <param name="hDevice">A handle to the raw input device. This comes from the <b>lParam</b> of the
+		/// <see cref="WM.INPUT">WM_INPUT</see> message, from the <see cref="RAWINPUTHEADER.hDevice">hDevice</see>
+		/// member of <see cref="RAWINPUTHEADER"/>, or from <see cref="GetRawInputDeviceList"/>. It can also be
+		/// <b>null</b> (IntPtr.Zero) if an application inserts input data, for example, by using <b>SendInput</b>.</param>
+		/// <returns>The information about the raw input device.</returns>
+		public static RID_DEVICE_INFO GetRawInputDeviceInfo(HANDLE hDevice)
+		{
+			uint size=(uint)Marshal.SizeOf(typeof(RID_DEVICE_INFO));
+
+			RID_DEVICE_INFO ret=new RID_DEVICE_INFO();
+			ret.cbSize=size;
+
+			uint err=GetRawInputDeviceInfo(hDevice, RIDI.DEVICEINFO, ref ret, ref size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error determining device information. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			return ret;
+		}
+
+		/// <summary>
+		/// Retrieves the preparsed data of a raw input device.
+		/// </summary>
+		/// <param name="hDevice">A handle to the raw input device. This comes from the <b>lParam</b> of the
+		/// <see cref="WM.INPUT">WM_INPUT</see> message, from the <see cref="RAWINPUTHEADER.hDevice">hDevice</see>
+		/// member of <see cref="RAWINPUTHEADER"/>, or from <see cref="GetRawInputDeviceList"/>. It can also be
+		/// <b>null</b> (IntPtr.Zero) if an application inserts input data, for example, by using <b>SendInput</b>.</param>
+		/// <returns>The preparsed data of raw input device.</returns>
+		public static byte[] GetRawInputDevicePreparsedData(HANDLE hDevice)
+		{
+			uint size=0;
+			uint err=GetRawInputDeviceInfo(hDevice, RIDI.PREPARSEDDATA, IntPtr.Zero, ref size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error determining preparsed data of device (length). (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			byte[] ret=new byte[size];
+
+			err=GetRawInputDeviceInfo(hDevice, RIDI.PREPARSEDDATA, ret, ref size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error determining preparsed data of device. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			return ret;
+		}
+
+		/// <summary>
+		/// Returns a list of raw input device handles and raw input device types.
+		/// </summary>
+		/// <returns>The list of raw input device handles and raw input device types.</returns>
+		public static List<Tuple<HANDLE, RIM_TYPE>> EnumerateDevices()
+		{
+			uint size=(uint)Marshal.SizeOf(typeof(RAWINPUTDEVICELIST));
+
+			uint deviceCount=0;
+
+			uint err=GetRawInputDeviceList(null, ref deviceCount, size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error enumerating raw input devices. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			if(deviceCount==0) return new List<Tuple<LRESULT, RIM_TYPE>>();
+
+			RAWINPUTDEVICELIST[] tmp=new RAWINPUTDEVICELIST[deviceCount+16]; // Just a few more, for the case they just got attached.
+			err=GetRawInputDeviceList(tmp, ref deviceCount, size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error enumerating raw input devices. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			List<Tuple<LRESULT, RIM_TYPE>> ret=new List<Tuple<LRESULT, RIM_TYPE>>();
+			for(int i=0; i<deviceCount; i++) ret.Add(new Tuple<LRESULT, RIM_TYPE>(tmp[i].hDevice, tmp[i].dwType));
+
+			return ret;
+		}
+
+		/// <summary>
+		/// Registers the devices that supply the raw input data.
+		/// </summary>
+		/// <remarks>
+		/// <para>To receive <see cref="WM.INPUT">WM_INPUT</see> messages, an application must first register the raw input
+		/// devices using <see cref="RegisterRawInputDevices"/>. By default, an application does not receive raw input.</para>
+		/// <para>To receive <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> messages, an application must
+		/// specify the <see cref="RIDEV.DEVNOTIFY"/> flag for each device class that is specified by the
+		/// <see cref="RAWINPUTDEVICE.usUsagePage">usUsagePage</see> and <see cref="RAWINPUTDEVICE.usUsage">usUsage</see>
+		/// fields of the <see cref="RAWINPUTDEVICE"/> structure. By default, an application does not receive
+		/// <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> notifications for raw input device arrival and removal.</para>
+		/// <para>If a <see cref="RAWINPUTDEVICE"/> structure has the <see cref="RIDEV.REMOVE"/> flag set and the
+		/// <see cref="RAWINPUTDEVICE.hwndTarget">hwndTarget</see> parameter is not set to <b>null</b> (IntPtr.Zero),
+		/// then parameter validation will fail.</para>
+		/// </remarks>
+		/// <param name="pRawInputDevice">A <see cref="RAWINPUTDEVICE"/> structure that represent the
+		/// devices that supply the raw input.</param>
+		/// <returns><b>true</b> if the function succeeds; otherwise, <b>false</b>. If the function fails, call
+		/// <see cref="WinKernel.GetLastError"/> for more information.</returns>
+		public static bool RegisterRawInputDevice(RAWINPUTDEVICE pRawInputDevice)
+		{
+			return RegisterRawInputDevice(ref pRawInputDevice, 1, (uint)Marshal.SizeOf(typeof(RAWINPUTDEVICE)));
+		}
+
+		[DllImport(DLLName, EntryPoint="GetRawInputData")]
+		extern static uint GetRawInputDataH(HRAWINPUT hRawInput, RID uiCommand, ref RAWINPUTHEADER pData, ref uint pcbSize, uint cbSizeHeader);
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="hRawInput"></param>
+		/// <returns></returns>
+		public static RAWINPUTHEADER GetRawInputDataHeader(HRAWINPUT hRawInput)
+		{
+			uint size=(uint)Marshal.SizeOf(typeof(RAWINPUTHEADER));
+
+			RAWINPUTHEADER ret=new RAWINPUTHEADER();
+			ret.dwSize=size;
+
+			uint err=GetRawInputDataH(hRawInput, RID.HEADER, ref ret, ref size, size);
+			if(err==uint.MaxValue) throw new Exception(string.Format("Error getting header of WM_INPUT data. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+			return ret;
+		}
 		#endregion
 	}
 }

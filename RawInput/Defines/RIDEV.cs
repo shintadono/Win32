@@ -80,7 +80,8 @@ namespace Win32.RawInput
 
 		/// <summary>
 		/// If set, this enables the caller to receive <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see>
-		/// notifications for device arrival and device removal.
+		/// notifications for device arrival and device removal. This works only when <see cref="INPUTSINK"/>
+		/// is also set (and of course <see cref="RAWINPUTDEVICE.hwndTarget"/> must be specified).
 		/// </summary>
 		/// <remarks><b>Windows XP:</b> This flag is not supported until Windows Vista</remarks>
 		DEVNOTIFY=0x00002000,
