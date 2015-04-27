@@ -34,5 +34,10 @@ namespace Win32.RawInput
 		/// The value passed in the <b>wParam</b> parameter of the <see cref="WM.INPUT">WM_INPUT</see> message.
 		/// </summary>
 		public WPARAM wParam;
+
+		/// <summary>
+		/// Size of <see cref="RAWINPUTHEADER"/> in bytes.
+		/// </summary>
+		public static readonly uint SIZE=(uint)Marshal.SizeOf(typeof(RAWINPUTHEADER));
 	}
 }

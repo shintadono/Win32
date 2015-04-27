@@ -32,5 +32,10 @@ namespace Win32.RawInput
 		/// </summary>
 		//public unsafe fixed byte rawData[1];
 		public byte bRawData;
+
+		/// <summary>
+		/// Size of <see cref="RAWHID"/> in bytes.
+		/// </summary>
+		public static readonly uint SIZE=(uint)Marshal.SizeOf(typeof(RAWHID));
 	}
 }

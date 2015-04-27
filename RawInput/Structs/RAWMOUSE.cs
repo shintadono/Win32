@@ -60,5 +60,10 @@ namespace Win32.RawInput
 		/// </summary>
 		[FieldOffset(20)]
 		public uint ulExtraInformation;
+
+		/// <summary>
+		/// Size of <see cref="RAWMOUSE"/> in bytes.
+		/// </summary>
+		public static readonly uint SIZE=(uint)Marshal.SizeOf(typeof(RAWMOUSE));
 	}
 }

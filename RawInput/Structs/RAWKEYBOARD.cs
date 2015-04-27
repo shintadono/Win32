@@ -41,5 +41,10 @@ namespace Win32.RawInput
 		/// The device-specific additional information for the event.
 		/// </summary>
 		public uint ExtraInformation;
+
+		/// <summary>
+		/// Size of <see cref="RAWKEYBOARD"/> in bytes.
+		/// </summary>
+		public static readonly uint SIZE=(uint)Marshal.SizeOf(typeof(RAWKEYBOARD));
 	}
 }

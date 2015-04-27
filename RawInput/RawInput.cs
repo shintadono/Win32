@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security;
-using HRAWINPUT=System.IntPtr;
+using System.Text;
 using HANDLE=System.IntPtr;
+using HRAWINPUT=System.IntPtr;
 using LRESULT=System.IntPtr;
 using WPARAM=System.UIntPtr;
-using System.Text;
-using System.Collections.Generic;
 
 namespace Win32.RawInput
 {
@@ -357,21 +357,55 @@ namespace Win32.RawInput
 		extern static uint GetRawInputDataH(HRAWINPUT hRawInput, RID uiCommand, ref RAWINPUTHEADER pData, ref uint pcbSize, uint cbSizeHeader);
 
 		/// <summary>
-		/// TODO
+		/// Retrieves the raw input header from the specified device.
 		/// </summary>
-		/// <param name="hRawInput"></param>
-		/// <returns></returns>
+		/// <remarks>See <see cref="GetRawInputData"/> for more information.</remarks>
+		/// <param name="hRawInput">A handle to the <see cref="RAWINPUT"/> structure. This comes from the
+		/// <b>lParam</b> in <see cref="WM.INPUT">WM_INPUT</see>.</param>
+		/// <returns>The raw input header as <see cref="RAWINPUTHEADER"/>.</returns>
 		public static RAWINPUTHEADER GetRawInputDataHeader(HRAWINPUT hRawInput)
 		{
-			uint size=(uint)Marshal.SizeOf(typeof(RAWINPUTHEADER));
+			uint size=RAWINPUTHEADER.SIZE;
 
 			RAWINPUTHEADER ret=new RAWINPUTHEADER();
 			ret.dwSize=size;
 
-			uint err=GetRawInputDataH(hRawInput, RID.HEADER, ref ret, ref size, size);
+			uint err=GetRawInputDataH(hRawInput, RID.HEADER, ref ret, ref size, RAWINPUTHEADER.SIZE);
 			if(err==uint.MaxValue) throw new Exception(string.Format("Error getting header of WM_INPUT data. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
 
 			return ret;
+		}
+
+		/// <summary>
+		/// Retrieves the raw input data from the specified device.
+		/// </summary>
+		/// <remarks>See <see cref="GetRawInputData"/> for more information.</remarks>
+		/// <typeparam name="T">A <b>struct</b> that will be the type of the returned data.</typeparam>
+		/// <param name="hRawInput">A handle to the <see cref="RAWINPUT"/> structure. This comes from the
+		/// <b>lParam</b> in <see cref="WM.INPUT">WM_INPUT</see>.</param>
+		/// <param name="size">Size of the <see cref="RAWINPUT"/> structure. Can be queried using
+		/// <see cref="GetRawInputDataHeader"/>; the size is stored in <see cref="RAWINPUTHEADER.dwSize"/>.</param>
+		/// <param name="offset">An offset to the start of the data, to be returned, in the resulting data of a
+		/// <see cref="GetRawInputData"/> call, without the <see cref="RAWINPUTHEADER"/>, which is omitted anyway.</param>
+		/// <returns>The raw input header as specified when called.</returns>
+		public unsafe static T GetRawInputData<T>(HRAWINPUT hRawInput, int size, int offset=0) where T : struct
+		{
+			if(size<(uint)Marshal.SizeOf(typeof(T))) throw new ArgumentOutOfRangeException("size", "Must be greater than or equal to sizeof(RAWINPUT).");
+
+			IntPtr buffer=Marshal.AllocHGlobal(size);
+			uint dwSize=(uint)size;
+
+			try
+			{
+				uint err=GetRawInputData(hRawInput, RID.INPUT, buffer, ref dwSize, RAWINPUTHEADER.SIZE);
+				if(err==uint.MaxValue) throw new Exception(string.Format("Error getting WM_INPUT data. (Error code: 0x{0:X8})", WinKernel.GetLastError()));
+
+				return (T)Marshal.PtrToStructure(buffer+(int)RAWINPUTHEADER.SIZE+offset, typeof(T));
+			}
+			finally
+			{
+				Marshal.FreeHGlobal(buffer);
+			}
 		}
 		#endregion
 	}
