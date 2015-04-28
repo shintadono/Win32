@@ -107,6 +107,7 @@
     <Compile Include="RawInput\RawInput.cs" />
     <Compile Include="RawInput\Defines\KEYBOARD.cs" />
     <Compile Include="RawInput\Defines\MOUSE.cs" />
+    <Compile Include="RawInput\RawInputProcessingHelper.cs" />
     <Compile Include="RawInput\Structs\RAWHID.cs" />
     <Compile Include="RawInput\Structs\RAWINPUT.cs" />
     <Compile Include="RawInput\Structs\RAWINPUTDEVICE.cs" />

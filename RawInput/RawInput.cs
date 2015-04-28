@@ -5,6 +5,7 @@ using System.Security;
 using System.Text;
 using HANDLE=System.IntPtr;
 using HRAWINPUT=System.IntPtr;
+using HWND=System.IntPtr;
 using LRESULT=System.IntPtr;
 using WPARAM=System.UIntPtr;
 
@@ -350,6 +351,64 @@ namespace Win32.RawInput
 		/// <see cref="WinKernel.GetLastError"/> for more information.</returns>
 		public static bool RegisterRawInputDevice(RAWINPUTDEVICE pRawInputDevice)
 		{
+			return RegisterRawInputDevice(ref pRawInputDevice, 1, (uint)Marshal.SizeOf(typeof(RAWINPUTDEVICE)));
+		}
+
+		/// <summary>
+		/// Registers the devices that supply the raw input data.
+		/// </summary>
+		/// <remarks>
+		/// <para>To receive <see cref="WM.INPUT">WM_INPUT</see> messages, an application must first register the raw input
+		/// devices using <see cref="RegisterRawInputDevices"/>. By default, an application does not receive raw input.</para>
+		/// <para>To receive <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> messages, an application must
+		/// specify the <see cref="RIDEV.DEVNOTIFY"/> flag for each device class that is specified by 
+		/// <paramref name="usagePage"/> and <paramref name="usage"/> arguments. By default, an application does not receive
+		/// <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> notifications for raw input device arrival and removal.</para>
+		/// </remarks>
+		/// <param name="flags">The flags as <see cref="RIDEV"/>.</param>
+		/// <param name="usagePage">An <b>ushort</b> specifiing the usage page.</param>
+		/// <param name="usage">An <b>ushort</b> specifiing the usage.</param>
+		/// <returns><b>true</b> if the function succeeds; otherwise, <b>false</b>. If the function fails, call
+		/// <see cref="WinKernel.GetLastError"/> for more information.</returns>
+		public static bool RegisterRawInputDevice(RIDEV flags, ushort usagePage, ushort usage)
+		{
+			RAWINPUTDEVICE pRawInputDevice=new RAWINPUTDEVICE();
+			pRawInputDevice.dwFlags=flags;
+			pRawInputDevice.usUsage=usage;
+			pRawInputDevice.usUsagePage=usagePage;
+			pRawInputDevice.hwndTarget=HWND.Zero;
+
+			return RegisterRawInputDevice(ref pRawInputDevice, 1, (uint)Marshal.SizeOf(typeof(RAWINPUTDEVICE)));
+		}
+
+		/// <summary>
+		/// Registers the devices that supply the raw input data.
+		/// </summary>
+		/// <remarks>
+		/// <para>To receive <see cref="WM.INPUT">WM_INPUT</see> messages, an application must first register the raw input
+		/// devices using <see cref="RegisterRawInputDevices"/>. By default, an application does not receive raw input.</para>
+		/// <para>To receive <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> messages, an application must
+		/// specify the <see cref="RIDEV.DEVNOTIFY"/> flag for each device class that is specified by 
+		/// <paramref name="usagePage"/> and <paramref name="usage"/> arguments. By default, an application does not receive
+		/// <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> notifications for raw input device arrival and removal.</para>
+		/// <para>If the <see cref="RIDEV.REMOVE"/> flag set and <paramref name="hwndTarget"/> is not set to <b>null</b> (IntPtr.Zero),
+		/// then parameter validation will fail.</para>
+		/// </remarks>
+		/// <param name="flags">The flags as <see cref="RIDEV"/>.</param>
+		/// <param name="usagePage">An <b>ushort</b> specifiing the usage page.</param>
+		/// <param name="usage">An <b>ushort</b> specifiing the usage.</param>
+		/// <param name="hwndTarget">The handle of the window, which shall recieve the <see cref="WM.INPUT">WM_INPUT</see>
+		/// and <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> messages.</param>
+		/// <returns><b>true</b> if the function succeeds; otherwise, <b>false</b>. If the function fails, call
+		/// <see cref="WinKernel.GetLastError"/> for more information.</returns>
+		public static bool RegisterRawInputDevice(RIDEV flags, ushort usagePage, ushort usage, HWND hwndTarget)
+		{
+			RAWINPUTDEVICE pRawInputDevice=new RAWINPUTDEVICE();
+			pRawInputDevice.dwFlags=flags;
+			pRawInputDevice.usUsage=usage;
+			pRawInputDevice.usUsagePage=usagePage;
+			pRawInputDevice.hwndTarget=hwndTarget;
+
 			return RegisterRawInputDevice(ref pRawInputDevice, 1, (uint)Marshal.SizeOf(typeof(RAWINPUTDEVICE)));
 		}
 
