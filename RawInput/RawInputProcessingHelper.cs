@@ -9,7 +9,7 @@ namespace Win32.RawInput
 	/// Helps to determine the device handler for incomming <see cref="WM.INPUT">WM_INPUT</see> messages.
 	/// </summary>
 	/// <remarks>
-	/// The following code shows a simple usage of two devices. Creates an instance of <see cref="RawInputProcessingHelper{1}"/>,
+	/// The following code shows a simple usage of two devices. Creates an instance of <see cref="RawInputProcessingHelper{T}"/>,
 	/// adds handler, updates the devices lists by timer and handles incoming <see cref="WM.INPUT">WM_INPUT</see> message by
 	/// overloading <c>WndProc</c> method.
 	/// <code>
@@ -22,6 +22,9 @@ namespace Win32.RawInput
 	/// 		SoftMouse3D=2,
 	/// 	}
 	/// 
+	/// 	const uint VendorID_Logitech=0x046d; // SpaceMouses, SpaceNavigators, etc.
+	/// 	const uint VendorID_GGS=0x241f; // Softmouse 3D
+	/// 
 	/// 	RawInputProcessingHelper&lt;MyDevices&gt; rawInputProcessingHelper=new RawInputProcessingHelper&lt;MyDevices&gt;();
 	/// 
 	/// 	public MyForm()
@@ -29,16 +32,16 @@ namespace Win32.RawInput
 	/// 		InitializeComponent();
 	/// 
 	/// 		// Add handler to processing helper
-	/// 		rawInputProcessingHelper.AddHandler(MyDevices.SpaceMouse, (info) =&gt; { return info.dwType==RIM_TYPE.HID&amp;&amp;info.hid.usUsage==8&amp;&amp;info.hid.usUsagePage==1&amp;&amp;info.hid.dwVendorId==0x046d; });
-	/// 		rawInputProcessingHelper.AddHandler(MyDevices.SoftMouse3D, (info) =&gt; { return info.dwType==RIM_TYPE.HID&amp;&amp;info.hid.usUsage==4&amp;&amp;info.hid.usUsagePage==1&amp;&amp;info.hid.dwVendorId==0x241f; });
+	/// 		rawInputProcessingHelper.AddHandler(MyDevices.SpaceMouse, (info) =&gt; { return info.dwType==RIM_TYPE.HID&amp;&amp;info.hid.usUsage==HID_USAGE_GENERIC_DESKTOP.MULTIAXIS_CONTROLLER&amp;&amp;info.hid.usUsagePage==HID_USAGE_PAGE.GENERIC_DESKTOP&amp;&amp;info.hid.dwVendorId==VendorID_Logitech; });
+	/// 		rawInputProcessingHelper.AddHandler(MyDevices.SoftMouse3D, (info) =&gt; { return info.dwType==RIM_TYPE.HID&amp;&amp;info.hid.usUsage==HID_USAGE_GENERIC_DESKTOP.JOYSTICK&amp;&amp;info.hid.usUsagePage==HID_USAGE_PAGE.GENERIC_DESKTOP&amp;&amp;info.hid.dwVendorId==VendorID_GGS; });
 	/// 
 	/// 		// Inital update of devices
 	/// 		rawInputProcessingHelper.UpdateDevices();
 	/// 
 	///			// Register the supported devices
 	/// 		bool err;
-	/// 		err=RawInput.RegisterRawInputDevice(RIDEV.NONE, 1, 8); // SpaceMouse
-	/// 		err=RawInput.RegisterRawInputDevice(RIDEV.NONE, 1, 4); // SoftMouse3D
+	/// 		err=RawInput.RegisterRawInputDevice(RIDEV.NONE, HID_USAGE_PAGE.GENERIC_DESKTOP, HID_USAGE_GENERIC_DESKTOP.MULTIAXIS_CONTROLLER); // SpaceMouse
+	/// 		err=RawInput.RegisterRawInputDevice(RIDEV.NONE, HID_USAGE_PAGE.GENERIC_DESKTOP, HID_USAGE_GENERIC_DESKTOP.JOYSTICK); // SoftMouse3D
 	/// 	}
 	/// 
 	/// 	[PermissionSet(SecurityAction.Demand, Name="FullTrust")]

@@ -103,7 +103,14 @@
     <Compile Include="GDI\Defines\LogFontPitchAndFamily.cs" />
     <Compile Include="GDI\Defines\LogFontPrecision.cs" />
     <Compile Include="GDI\Defines\LogFontQuality.cs" />
+    <Compile Include="HumanInterfaceDevices\Defines\HID_USAGE_GAME.cs" />
+    <Compile Include="HumanInterfaceDevices\Defines\HID_USAGE_GENERIC_DEVICE.cs" />
+    <Compile Include="HumanInterfaceDevices\Defines\HID_USAGE_SPORT.cs" />
+    <Compile Include="HumanInterfaceDevices\Defines\HID_USAGE_VR.cs" />
     <Compile Include="RawInput\Defines\GIDC.cs" />
+    <Compile Include="HumanInterfaceDevices\Defines\HID_USAGE_GENERIC_DESKTOP.cs" />
+    <Compile Include="HumanInterfaceDevices\Defines\HID_USAGE_PAGE.cs" />
+    <Compile Include="HumanInterfaceDevices\Defines\HID_USAGE_SIMULATION.cs" />
     <Compile Include="RawInput\RawInput.cs" />
     <Compile Include="RawInput\Defines\KEYBOARD.cs" />
     <Compile Include="RawInput\Defines\MOUSE.cs" />
