@@ -1,8 +1,11 @@
-﻿namespace Win32.HumanInterfaceDevices
+﻿using System;
+
+namespace Win32.HumanInterfaceDevices
 {
 	/// <summary>
 	/// Defines the usage pages for "Human Interface Devices".
 	/// </summary>
+	[CLSCompliant(false)]
 	public static class HID_USAGE_PAGE
 	{
 		/// <summary>

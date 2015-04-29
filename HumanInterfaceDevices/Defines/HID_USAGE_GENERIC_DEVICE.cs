@@ -1,8 +1,11 @@
-﻿namespace Win32.HumanInterfaceDevices
+﻿using System;
+
+namespace Win32.HumanInterfaceDevices
 {
 	/// <summary>
 	/// Defines the usage of "Human Interface Devices" on Usage Page 6 (Generic Device Controls)
 	/// </summary>
+	[CLSCompliant(false)]
 	public static class HID_USAGE_GENERIC_DEVICE
 	{
 		/// <summary>
