@@ -47,6 +47,21 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileOperations\Defines\FileAccess.cs" />
+    <Compile Include="FileOperations\Defines\FilePointerMoveMethod.cs" />
+    <Compile Include="FileOperations\Defines\FILE_ACTION.cs" />
+    <Compile Include="FileOperations\Defines\FILE_GENERIC.cs" />
+    <Compile Include="FileOperations\Defines\FILE_NOTIFY_CHANGE.cs" />
+    <Compile Include="FileOperations\FileOperations.cs" />
+    <Compile Include="WinKernel\Defines\ACCESS_MASK.cs" />
+    <Compile Include="FileOperations\Defines\FileFlagsAndAttributes.cs" />
+    <Compile Include="FileOperations\Defines\FileMode.cs" />
+    <Compile Include="FileOperations\Defines\FILE_ATTRIBUTE.cs" />
+    <Compile Include="FileOperations\Defines\FILE_FLAG.cs" />
+    <Compile Include="FileOperations\Defines\FILE_SHARE.cs" />
+    <Compile Include="WinKernel\Defines\GENERIC.cs" />
+    <Compile Include="FileOperations\Defines\SECURITY.cs" />
+    <Compile Include="WinKernel\Defines\SECURITY_IMPERSONATION_LEVEL.cs" />
     <Compile Include="GDI\GDI.cs" />
     <Compile Include="GDI\Defines\FW.cs" />
     <Compile Include="GDI\Defines\CLIP_PRECIS.cs" />
@@ -143,12 +158,15 @@
     <Compile Include="WinDef\Size.cs" />
     <Compile Include="Window\Defines\CS.cs" />
     <Compile Include="Window\Defines\DCX.cs" />
-    <Compile Include="Window\Defines\ERROR.cs" />
+    <Compile Include="WinKernel\Defines\ERROR.cs" />
     <Compile Include="Window\Defines\HT.cs" />
     <Compile Include="Window\Defines\SWP.cs" />
     <Compile Include="Window\Window.cs" />
     <Compile Include="Window\Defines\WS.cs" />
     <Compile Include="Window\Defines\WM.cs" />
+    <Compile Include="WinKernel\Defines\STANDARD_RIGHTS.cs" />
+    <Compile Include="WinKernel\Structs\GENERIC_MAPPING.cs" />
+    <Compile Include="WinKernel\Structs\SECURITY_ATTRIBUTES.cs" />
     <Compile Include="WinKernel\WinKernel.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
@@ -157,6 +175,7 @@
     <None Include="README.md" />
     <None Include="StrongNameKey.snk" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
