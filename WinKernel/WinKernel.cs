@@ -18,5 +18,17 @@ namespace Win32
 		/// <returns>The last-error code.</returns>
 		[DllImport(DLLName)]
 		public static extern uint GetLastError();
+
+		/// <summary>
+		/// Sets the last-error code for the calling thread.
+		/// </summary>
+		[DllImport(DLLName)]
+		public static extern void SetLastError(int error);
+
+		/// <summary>
+		/// Sets the last-error code for the calling thread.
+		/// </summary>
+		[DllImport(DLLName)]
+		public static extern void SetLastError(uint error);
 	}
 }
