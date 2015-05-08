@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Win32
+﻿namespace Win32.IO
 {
 	/// <summary>
 	/// Defines the specific access rights to files and directories. See <see cref="ACCESS_MASK"/> for more information.

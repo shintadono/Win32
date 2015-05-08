@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32
+namespace Win32.IO
 {
 	/// <summary>
 	/// Used by <see cref="O:Wind32.File.CreateFile">CreateFile</see> as combined parameter for <b>FILE_FLAG_*</b>,

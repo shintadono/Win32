@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32
+namespace Win32.IO
 {
 	/// <summary>
 	/// Defines how the generic access right for files and directories are made up,

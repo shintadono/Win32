@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Win32
+namespace Win32.IO
 {
 	/// <summary>
 	/// Class for file system operations.

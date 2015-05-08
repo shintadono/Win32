@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Threading;
 
-namespace Win32
+namespace Win32.IO
 {
 	/// <summary>
 	/// Class for file operations.

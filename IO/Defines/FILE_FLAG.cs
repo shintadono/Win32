@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32
+namespace Win32.IO
 {
 	/// <summary>
 	/// Defines the file flags used by some file functions.

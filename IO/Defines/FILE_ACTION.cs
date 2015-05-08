@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32
+namespace Win32.IO
 {
 	/// <summary>
 	/// Defined the type of change that can occur in directories.
