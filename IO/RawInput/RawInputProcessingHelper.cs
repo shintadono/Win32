@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using HANDLE=System.IntPtr;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Helps to determine the device handler for incomming <see cref="WM.INPUT">WM_INPUT</see> messages.

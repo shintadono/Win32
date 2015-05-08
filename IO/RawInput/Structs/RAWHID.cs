@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Describes the format of the raw input from a Human Interface Device (HID).

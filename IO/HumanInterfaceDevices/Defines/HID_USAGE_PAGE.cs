@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.IO.HumanInterfaceDevices
 {
 	/// <summary>
 	/// Defines the usage pages for "Human Interface Devices".

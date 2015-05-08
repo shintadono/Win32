@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using HANDLE=System.IntPtr;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Contains information about a raw input device.

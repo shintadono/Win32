@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using HANDLE=System.IntPtr;
 using WPARAM=System.UIntPtr;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Contains the header information that is part of the raw input data.

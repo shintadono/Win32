@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Mode flag that specifies how to interpret the information provided by

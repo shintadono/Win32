@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using HWND=System.IntPtr;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Defines information for the raw input devices.

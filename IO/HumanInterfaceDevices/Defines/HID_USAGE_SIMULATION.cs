@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.HumanInterfaceDevices
+namespace Win32.IO.HumanInterfaceDevices
 {
 	/// <summary>
 	/// Defines the usage of "Human Interface Devices" on Usage Page 2 (Simulation Controls)

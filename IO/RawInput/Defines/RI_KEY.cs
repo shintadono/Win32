@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Defines flags for scan code information.

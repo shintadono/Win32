@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Defines the command flag for <see cref="RawInput.GetRawInputData"/>.

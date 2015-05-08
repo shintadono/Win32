@@ -9,7 +9,7 @@ using HWND=System.IntPtr;
 using LRESULT=System.IntPtr;
 using WPARAM=System.UIntPtr;
 
-namespace Win32.RawInput
+namespace Win32.IO.RawInput
 {
 	/// <summary>
 	/// Class for managing human interface devices.
