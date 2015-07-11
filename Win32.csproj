@@ -53,6 +53,9 @@
     <Compile Include="IO\Defines\FILE_GENERIC.cs" />
     <Compile Include="IO\Defines\FILE_NOTIFY_CHANGE.cs" />
     <Compile Include="IO\FileOperations.cs" />
+    <Compile Include="MultiMedia\Joystick.cs" />
+    <Compile Include="MultiMedia\JoystickData.cs" />
+    <Compile Include="MultiMedia\WinMM.cs" />
     <Compile Include="WinKernel\Defines\ACCESS_MASK.cs" />
     <Compile Include="IO\Defines\FileFlagsAndAttributes.cs" />
     <Compile Include="IO\Defines\FileMode.cs" />
