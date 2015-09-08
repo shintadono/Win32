@@ -8,7 +8,7 @@ namespace Win32
 	/// <summary>
 	/// Class containing function of the GDI relevant for OpenGL initialization.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public static class DeviceContext
 	{
 		const string DLLName="GDI32.dll";

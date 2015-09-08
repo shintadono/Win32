@@ -8,7 +8,7 @@ namespace Win32
 	/// <summary>
 	/// Native GDI calls.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public static class GDI
 	{
 		const string DLLName="GDI32.dll";

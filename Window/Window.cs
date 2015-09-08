@@ -9,7 +9,7 @@ namespace Win32
 	/// <summary>
 	/// Class for managing windows (not the OS, just the windows).
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public static class Window
 	{
 		const string DLLName="User32.dll";

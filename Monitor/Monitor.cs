@@ -10,7 +10,7 @@ namespace Win32
 	/// <summary>
 	/// Class for managing monitor devices.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public class Monitor
 	{
 		/// <summary>

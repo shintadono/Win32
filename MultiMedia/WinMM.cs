@@ -7,6 +7,7 @@ namespace Win32.MultiMedia
 	/// <summary>
 	/// Windows Multimedia binding for .NET, implementing Windows-specific multimedia functionality.
 	/// </summary>
+	[SuppressUnmanagedCodeSecurity]
 	public static class WinMM
 	{
 		// --- Fields ---
@@ -947,7 +948,7 @@ namespace Win32.MultiMedia
 		/// </remarks>
 		// WINMMAPI BOOL WINAPI PlaySoundA(IN LPCSTR pszSound, IN HMODULE hmod, IN DWORD fdwSound);
 		// WINMMAPI BOOL WINAPI PlaySoundW(IN LPCWSTR pszSound, IN HMODULE hmod, IN DWORD fdwSound);
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern bool PlaySound(string sound, IntPtr mod, uint soundFlags);
 
 		/// <summary>
@@ -977,7 +978,7 @@ namespace Win32.MultiMedia
 		/// </remarks>
 		/// <seealso cref="timeEndPeriod" />
 		// WINMMAPI MMRESULT WINAPI timeBeginPeriod(IN UINT uPeriod);
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint timeBeginPeriod(uint period);
 
 		/// <summary>
@@ -1006,7 +1007,7 @@ namespace Win32.MultiMedia
 		/// </remarks>
 		/// <seealso cref="timeBeginPeriod" />
 		// WINMMAPI MMRESULT WINAPI timeEndPeriod(IN UINT uPeriod)
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint timeEndPeriod(uint period);
 
 		/// <summary>
@@ -1051,7 +1052,7 @@ namespace Win32.MultiMedia
 		// <seealso cref="MMTIME" />
 		// <seealso cref="timeGetSystemTime" />
 		// WINMMAPI DWORD WINAPI timeGetTime(void);
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint timeGetTime();
 
 		/// <summary>
@@ -1071,7 +1072,7 @@ namespace Win32.MultiMedia
 		/// #define JOY_CONFIGCHANGED_MSGSTRING     "MSJSTICK_VJOYD_MSGSTR"
 		/// </code>
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joyConfigChanged(uint dwFlags);
 
 		/// <summary>
@@ -1102,7 +1103,7 @@ namespace Win32.MultiMedia
 		/// </remarks>
 		/// <seealso cref="JOYCAPS"/>
 		/// <seealso cref="joyGetNumDevs"/>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern Int32 joyGetDevCaps(UIntPtr uJoyID, ref JOYCAPS pjc, uint cbjc);
 
 		/// <summary>
@@ -1116,7 +1117,7 @@ namespace Win32.MultiMedia
 		/// Use the <see cref="joyGetPos"/> function to determine whether a given joystick is physically attached to the system. If the specified joystick is not connected, joyGetPos returns a <see cref="JOYERR_UNPLUGGED"/> error value.
 		/// </para>
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joyGetNumDevs();
 
 		/// <summary>
@@ -1139,7 +1140,7 @@ namespace Win32.MultiMedia
 		/// <remarks>
 		/// For devices that have four to six axes of movement, a point-of-view control, or more than four buttons, use the <see cref="joyGetPosEx"/> function.
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joyGetPos(uint uJoyID, ref JOYINFO pji);
 
 		/// <summary>
@@ -1166,7 +1167,7 @@ namespace Win32.MultiMedia
 		/// <remarks>
 		/// This function provides access to extended devices such as rudder pedals, point-of-view hats, devices with a large number of buttons, and coordinate systems using up to six axes. For joystick devices that use three axes or fewer and have fewer than four buttons, use the joyGetPos function.
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joyGetPosEx(uint uJoyID, ref JOYINFOEX pji);
 
 		/// <summary>
@@ -1190,7 +1191,7 @@ namespace Win32.MultiMedia
 		/// <remarks>
 		/// The movement threshold is the distance the joystick must be moved before a joystick position-change message (<see cref="MM_JOY1MOVE"/>, <see cref="MM_JOY1ZMOVE"/>, <see cref="MM_JOY2MOVE"/>, or <see cref="MM_JOY2ZMOVE"/>) is sent to a window that has captured the device. The threshold is initially zero.
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joyGetThreshold(uint uJoyID, ref uint puThreshold);
 
 		/// <summary>
@@ -1212,7 +1213,7 @@ namespace Win32.MultiMedia
 		/// <remarks>
 		/// Windows 95/98/Me: This method returns JOYERR_NOERROR when passed a valid joystick identifier that has not been captured.
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joyReleaseCapture(uint uJoyID);
 
 		/// <summary>
@@ -1245,7 +1246,7 @@ namespace Win32.MultiMedia
 		/// <remarks>
 		/// This function fails if the specified joystick is currently captured. Call the joyReleaseCapture function to release the captured joystick, or destroy the window to release the joystick automatically.
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joySetCapture(IntPtr hwnd, uint uJoyID, uint uPeriod, bool fChanged);
 
 		/// <summary>
@@ -1269,7 +1270,7 @@ namespace Win32.MultiMedia
 		/// <remarks>
 		/// The movement threshold is the distance the joystick must be moved before a joystick position-change message (<see cref="MM_JOY1MOVE"/>, <see cref="MM_JOY1ZMOVE"/>, <see cref="MM_JOY2MOVE"/>, or <see cref="MM_JOY2ZMOVE"/>) is sent to a window that has captured the device. The threshold is initially zero.
 		/// </remarks>
-		[DllImport(DLLName), SuppressUnmanagedCodeSecurity]
+		[DllImport(DLLName)]
 		public static extern uint joySetThreshold(uint uJoyID, uint uThreshold);
 	}
 }

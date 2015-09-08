@@ -9,7 +9,7 @@ namespace Win32
 	/// <summary>
 	/// Class for managing display modes.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public class DisplayMode
 	{
 		/// <summary>

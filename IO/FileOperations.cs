@@ -8,7 +8,7 @@ namespace Win32.IO
 	/// <summary>
 	/// Class for file operations.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public static class FileOperations
 	{
 		const string DLLName="Kernel32.dll";

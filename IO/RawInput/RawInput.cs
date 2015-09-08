@@ -14,7 +14,7 @@ namespace Win32.IO.RawInput
 	/// <summary>
 	/// Class for managing human interface devices.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	[CLSCompliant(false)]
 	public class RawInput
 	{

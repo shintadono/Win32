@@ -39,7 +39,7 @@ namespace Win32.MultiMedia
 			return ret;
 		}
 
-		#region Eigenschaften
+		#region Properties
 		/// <summary>
 		/// 
 		/// </summary>

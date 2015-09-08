@@ -9,7 +9,7 @@ namespace Win32
 	/// <summary>
 	/// Class for working with fonts.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public static class Font
 	{
 		const string DLLName="GDI32.dll";

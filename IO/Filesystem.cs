@@ -7,7 +7,7 @@ namespace Win32.IO
 	/// <summary>
 	/// Class for file system operations.
 	/// </summary>
-	[SuppressUnmanagedCodeSecurity()]
+	[SuppressUnmanagedCodeSecurity]
 	public static class Filesystem
 	{
 		const string DLLName="Kernel32.dll";
