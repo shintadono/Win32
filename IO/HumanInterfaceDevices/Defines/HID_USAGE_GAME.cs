@@ -123,7 +123,7 @@ namespace Win32.IO.HumanInterfaceDevices
 		public const ushort GUN_CLIP=0x31;
 
 		/// <summary>
-		///  Gun Selector
+		/// Gun Selector
 		/// </summary>
 		public const ushort GUN_SELECTOR=0x32;
 

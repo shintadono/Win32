@@ -63,7 +63,7 @@ namespace Win32.IO.HumanInterfaceDevices
 		public const ushort STICK_FACE_ANGLE=0x34;
 
 		/// <summary>
-		///  Stick Heel/Toe
+		/// Stick Heel/Toe
 		/// </summary>
 		public const ushort STICK_HEEL_TOE=0x35;
 

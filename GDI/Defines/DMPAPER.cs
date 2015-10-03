@@ -146,17 +146,17 @@
 		ENV_C5=28,
 
 		/// <summary>
-		/// Envelope C3  324 x 458 mm
+		/// Envelope C3 324 x 458 mm
 		/// </summary>
 		ENV_C3=29,
 
 		/// <summary>
-		/// Envelope C4  229 x 324 mm
+		/// Envelope C4 229 x 324 mm
 		/// </summary>
 		ENV_C4=30,
 
 		/// <summary>
-		/// Envelope C6  114 x 162 mm
+		/// Envelope C6 114 x 162 mm
 		/// </summary>
 		ENV_C6=31,
 
@@ -166,17 +166,17 @@
 		ENV_C65=32,
 
 		/// <summary>
-		/// Envelope B4  250 x 353 mm
+		/// Envelope B4 250 x 353 mm
 		/// </summary>
 		ENV_B4=33,
 
 		/// <summary>
-		/// Envelope B5  176 x 250 mm
+		/// Envelope B5 176 x 250 mm
 		/// </summary>
 		ENV_B5=34,
 
 		/// <summary>
-		/// Envelope B6  176 x 125 mm
+		/// Envelope B6 176 x 125 mm
 		/// </summary>
 		ENV_B6=35,
 

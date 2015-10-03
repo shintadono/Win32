@@ -397,7 +397,7 @@ namespace Win32.IO.RawInput
 		/// <param name="flags">The flags as <see cref="RIDEV"/>.</param>
 		/// <param name="usagePage">An <b>ushort</b> specifiing the usage page.</param>
 		/// <param name="usage">An <b>ushort</b> specifiing the usage.</param>
-		/// <param name="hwndTarget">The handle of the window, which shall recieve the <see cref="WM.INPUT">WM_INPUT</see>
+		/// <param name="hwndTarget">The handle of the window, which shall receive the <see cref="WM.INPUT">WM_INPUT</see>
 		/// and <see cref="WM.INPUT_DEVICE_CHANGE">WM_INPUT_DEVICE_CHANGE</see> messages.</param>
 		/// <returns><b>true</b> if the function succeeds; otherwise, <b>false</b>. If the function fails, call
 		/// <see cref="WinKernel.GetLastError"/> for more information.</returns>

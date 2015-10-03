@@ -1046,7 +1046,7 @@ namespace Win32.IO
 		/// <param name="hFile">A handle to the file.</param>
 		/// <param name="lDistanceToMove">The low order 32-bits of a signed value that specifies the number of bytes to move the file pointer.</param>
 		/// <param name="lpDistanceToMoveHigh">A pointer to the high order 32-bits of a signed value that specifies the number of bytes to move
-		/// the file pointer. This variable also recieves the new file pointer. If this parameter is null (IntPtr.Zero), the new file pointer is
+		/// the file pointer. This variable also receives the new file pointer. If this parameter is null (IntPtr.Zero), the new file pointer is
 		/// not returned.</param>
 		/// <param name="dwMoveMethod">The starting point for the file pointer move.</param>
 		/// <returns>If successful returns the low order 32-bits of the new file pointer position, otherwise <see cref="INVALID_SET_FILE_POINTER"/>.</returns>
@@ -1059,7 +1059,7 @@ namespace Win32.IO
 		/// <param name="hFile">A handle to the file.</param>
 		/// <param name="lDistanceToMove">The low order 32-bits of a signed value that specifies the number of bytes to move the file pointer.</param>
 		/// <param name="lpDistanceToMoveHigh">A pointer to the high order 32-bits of a signed value that specifies the number of bytes to move
-		/// the file pointer. This variable also recieves the new file pointer. If this parameter is null (IntPtr.Zero), the new file pointer is
+		/// the file pointer. This variable also receives the new file pointer. If this parameter is null (IntPtr.Zero), the new file pointer is
 		/// not returned.</param>
 		/// <param name="dwMoveMethod">The starting point for the file pointer move.</param>
 		/// <returns>If successful returns the low order 32-bits of the new file pointer position, otherwise <see cref="INVALID_SET_FILE_POINTER"/>.</returns>
@@ -1072,7 +1072,7 @@ namespace Win32.IO
 		/// <param name="hFile">A handle to the file.</param>
 		/// <param name="lDistanceToMove">The low order 32-bits of a signed value that specifies the number of bytes to move the file pointer.</param>
 		/// <param name="lpDistanceToMoveHigh">The high order 32-bits of a signed value that specifies the number of bytes to move the file pointer.
-		/// This variable also recieves the new file pointer.</param>
+		/// This variable also receives the new file pointer.</param>
 		/// <param name="dwMoveMethod">The starting point for the file pointer move.</param>
 		/// <returns>If successful returns the low order 32-bits of the new file pointer position, otherwise <see cref="INVALID_SET_FILE_POINTER"/>.</returns>
 		[DllImport(DLLName)]

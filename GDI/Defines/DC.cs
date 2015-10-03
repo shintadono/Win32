@@ -80,10 +80,6 @@
 
 		/// <summary>
 		/// Retrieves the abilities of the driver to use TrueType fonts.
-		/// TODO: enum DCTT
-		///  DCTT_BITMAP Device can print TrueType fonts as graphics.
-		///  DCTT_DOWNLOAD Device can download TrueType fonts.
-		///  DCTT_SUBDEV Device can substitute device fonts for TrueType fonts.
 		/// </summary>
 		TRUETYPE=15,
 
@@ -179,7 +175,7 @@
 		NUP=33,
 
 		/// <summary>
-		///  Retrieves the names of the supported media types.
+		/// Retrieves the names of the supported media types.
 		/// </summary>
 		MEDIATYPENAMES=34,
 
